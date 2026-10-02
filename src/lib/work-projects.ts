@@ -36,7 +36,7 @@ const workProjectMeta: Record<
   },
   caresync: {
     filters: ["Web Apps"],
-    tags: ["UX", "React", "HIPAA-ready", "Portals"],
+    tags: ["UX", "React", "Web portals", "Portals"],
   },
   fleetcore: {
     filters: ["Web Apps", "SaaS"],
