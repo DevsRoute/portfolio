@@ -1,3 +1,4 @@
+import { ServiceAudienceForSlug } from "@/components/services/ServiceAudienceBlock";
 import { ServiceCTA, ServiceFAQ, ServiceRelated } from "@/components/services/ServiceClosingSections";
 import { ServiceSchema } from "@/components/services/ServiceSchema";
 import {
@@ -30,6 +31,7 @@ export function ServicePageContent({ service }: { service: ServicePageData }) {
     <>
       <ServiceSchema service={service} />
       <ServiceVisualHero service={service} />
+      <ServiceAudienceForSlug slug={service.slug} />
       <ServiceVisualIntro service={service} />
       <ServiceVisualBuild service={service} />
       <ServiceVisualBreak service={service} />

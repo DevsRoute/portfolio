@@ -4,7 +4,8 @@ import { ArrowRight } from "lucide-react";
 
 import { ServiceContainer, ServiceSection } from "@/components/services/ServiceLayout";
 import { ServiceHeading } from "@/components/services/ServiceShared";
-import { deliveredProjects } from "@/components/home/projects-delivered-data";
+import { siteFacts } from "@/config/site-facts";
+import { getFeaturedProjects } from "@/data/projects";
 import type { ServicePageData } from "@/lib/services/service-pages-data";
 import { getServiceVisualConfig } from "@/lib/services/service-visual-config";
 
@@ -134,9 +135,8 @@ export function ServiceProjectsShowcase({ service }: { service: ServicePageData 
   const visual = getServiceVisualConfig(service.slug);
   if (!visual) return null;
 
-  const projects = visual.projectIds
-    .map((id) => deliveredProjects.find((p) => p.id === id))
-    .filter((p): p is NonNullable<typeof p> => Boolean(p));
+  const projects = getFeaturedProjects(siteFacts.showConcepts).slice(0, 3);
+  if (projects.length === 0) return null;
 
   return (
     <ServiceSection tone="dark" className="!py-20 sm:!py-24">
@@ -144,8 +144,8 @@ export function ServiceProjectsShowcase({ service }: { service: ServicePageData 
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <ServiceHeading
             as="h2"
-            title="Built for Real"
-            accent="Businesses."
+            title="Related"
+            accent="Work."
             className="text-white [&_span]:text-white/75"
           />
           <Link
@@ -158,11 +158,15 @@ export function ServiceProjectsShowcase({ service }: { service: ServicePageData 
         </div>
         <div className="mt-12 grid gap-8 lg:grid-cols-3">
           {projects.map((project) => (
-            <article key={project.id} className="group">
+            <Link
+              key={project.slug}
+              href={`/work/${project.slug}`}
+              className="group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+            >
               <div className="relative aspect-16/10 overflow-hidden rounded-2xl bg-white/10">
                 <Image
-                  src={project.image}
-                  alt={project.imageAlt}
+                  src={project.screenshot}
+                  alt={project.screenshotAlt}
                   fill
                   sizes="(max-width: 1024px) 100vw, 33vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
@@ -173,13 +177,13 @@ export function ServiceProjectsShowcase({ service }: { service: ServicePageData 
                   {project.category}
                 </p>
                 <h3 className="mt-2 font-heading text-xl font-semibold text-white">
-                  {project.name}
+                  {project.title}
                 </h3>
                 <p className="mt-2 line-clamp-2 text-sm leading-6 text-white/75">
-                  {project.description}
+                  Our role: {project.roleSummary}
                 </p>
               </div>
-            </article>
+            </Link>
           ))}
         </div>
       </ServiceContainer>
