@@ -1,9 +1,11 @@
+import { cta } from "@/lib/site-config";
+
 export const heroContent = {
-  titleAccent: "AI & Software",
-  titleRest: " Partner for",
-  titleLine2: "Businesses Ready to Grow",
+  headline: "We build MVPs and AI products in 2-6 weeks.",
   description:
-    "DevsRoute helps businesses connect AI to real workflows and build intelligent software that learns, adapts, and scales with your business.",
-  cta: "Book a 20-min call",
-  href: "https://calendly.com/devsroute/technical-read",
+    "A small remote team of senior developers for funded founders and SaaS teams. You talk directly to the people building your product.",
+  primaryCta: cta.label,
+  primaryHref: cta.href,
+  secondaryCta: "See our work",
+  secondaryHref: "/work",
 } as const;
