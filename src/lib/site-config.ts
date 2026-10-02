@@ -1,13 +1,21 @@
+import { siteFacts } from "@/config/site-facts";
+
 export const services = [
   {
+    label: "AI Solutions",
+    description: "Chatbots, automation, and OpenAI features for SaaS teams.",
+    href: "/services/ai-solutions",
+    icon: "sparkles",
+  },
+  {
     label: "Custom Software",
-    description: "Bespoke products built around your workflow.",
+    description: "Scoped MVPs and products built with senior developers.",
     href: "/services/custom-software-development",
     icon: "code",
   },
   {
     label: "Web Applications",
-    description: "Fast, scalable web apps ready to launch.",
+    description: "Fast, scalable web apps for growing products.",
     href: "/services/web-application-development",
     icon: "globe",
   },
@@ -16,12 +24,6 @@ export const services = [
     description: "iOS and Android apps your users will keep.",
     href: "/services/mobile-app-development",
     icon: "smartphone",
-  },
-  {
-    label: "AI Solutions",
-    description: "Practical AI features inside real products.",
-    href: "/services/ai-solutions",
-    icon: "sparkles",
   },
   {
     label: "UI / UX Design",
@@ -39,16 +41,23 @@ export const services = [
 
 export type ServiceIcon = (typeof services)[number]["icon"];
 
+/** Canonical CTA — use everywhere instead of hardcoding */
+export const cta = {
+  label: siteFacts.calendly.label,
+  href: siteFacts.calendly.href,
+} as const;
+
 export const siteConfig = {
-  name: "DevsRoute",
-  title: "DevsRoute — Software Development Agency",
+  name: siteFacts.companyName,
+  title: "DevsRoute | MVP & AI Software Development for Startups",
   description:
-    "DevsRoute is a software development agency helping startups and growing companies turn ideas into launch-ready products.",
+    "A small remote team of senior developers for funded founders and SaaS teams. MVPs and AI products in 2-6 weeks — talk directly to the people building.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://devsroute.com",
-  email: "hello@devsroute.com",
+  email: siteFacts.email,
+  address: siteFacts.address,
   calendly: {
-    href: "https://calendly.com/devsroute/technical-read",
-    label: "Book a 20-min call",
+    href: cta.href,
+    label: cta.label,
   },
   colors: {
     blue: "#1d81f2",
@@ -61,8 +70,19 @@ export const siteConfig = {
     { label: "About", href: "/about" },
     { label: "Contact", href: "/contact" },
   ],
-  cta: {
-    label: "Book a 20-min call",
-    href: "https://calendly.com/devsroute/technical-read",
-  },
+  cta,
 } as const;
+
+/**
+ * Append UTM params for Calendly tracking without breaking the base URL.
+ */
+export function calendlyHref(pagePath = "/") {
+  try {
+    const url = new URL(cta.href);
+    url.searchParams.set("utm_source", "website");
+    url.searchParams.set("utm_content", pagePath.replace(/^\//, "") || "home");
+    return url.toString();
+  } catch {
+    return cta.href;
+  }
+}
