@@ -1,9 +1,9 @@
 export const featuredServices = [
   {
     id: "ai-solutions",
-    title: "AI & Product Intelligence",
+    title: "AI Solutions",
     description:
-      "Practical AI inside real products — assistants, automation, and insights that help teams move faster without sacrificing reliability.",
+      "Chatbots, automation, and OpenAI-powered features for SaaS teams — without pulling your core roadmap off track.",
     offerings: [
       "AI assistants & chat",
       "Workflow automation",
@@ -18,9 +18,9 @@ export const featuredServices = [
   },
   {
     id: "custom-software",
-    title: "Custom Software Development",
+    title: "Custom Software & MVPs",
     description:
-      "Bespoke products engineered around your workflow — from MVP to production systems that scale cleanly with your business.",
+      "Scoped MVPs for funded founders in 2-6 weeks, then grow into the product your users need — with senior developers only.",
     offerings: [
       "MVP & product builds",
       "Internal tools",

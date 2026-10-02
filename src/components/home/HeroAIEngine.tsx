@@ -31,7 +31,7 @@ const INTRO_MESSAGES: ChatMessage[] = [
     id: "welcome-2",
     role: "assistant",
     content:
-      "DevsRoute · Software development agency focused on custom software, AI solutions, and launch-ready digital products.",
+      "DevsRoute · Software development agency focused on custom software, AI solutions, and digital products for startups.",
   },
 ];
 
@@ -47,7 +47,7 @@ function getAssistantReply(question: string) {
   }
 
   if (q.includes("mvp") || q.includes("project") || q.includes("idea")) {
-    return "Yes — we help teams go from idea to a launch-ready MVP with clear scope, strong UX, and reliable engineering.";
+    return "Yes — we help teams go from idea to a scoped MVP with clear scope, strong UX, and reliable engineering.";
   }
 
   if (q.includes("process") || q.includes("approach") || q.includes("experience")) {

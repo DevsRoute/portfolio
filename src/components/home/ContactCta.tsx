@@ -67,6 +67,7 @@ export function ContactCta() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex w-fit items-center gap-3 text-sm font-medium text-white transition-opacity hover:opacity-90 sm:text-base"
+                  data-analytics="calendly"
                 >
                   <CalendarDays className="size-5 shrink-0" strokeWidth={2} />
                   {siteConfig.calendly.label}

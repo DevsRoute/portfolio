@@ -1,20 +1,9 @@
 import { Button } from "@/components/ui/button";
-import { siteConfig } from "@/lib/site-config";
-
-const impactStats = [
-  {
-    value: "80+",
-    label: "digital products designed, built and shipped.",
-  },
-  {
-    value: "50+",
-    label: "clients served across five industries.",
-  },
-  {
-    value: "8+",
-    label: "years building software that lasts.",
-  },
-] as const;
+import {
+  getConfirmedStats,
+  getSafeImpactClaims,
+} from "@/config/site-facts";
+import { calendlyHref, siteConfig } from "@/lib/site-config";
 
 function ImpactRouteArt({ className }: { className?: string }) {
   return (
@@ -91,6 +80,12 @@ function ImpactRouteArt({ className }: { className?: string }) {
 }
 
 export function TrustProof() {
+  const confirmed = getConfirmedStats();
+  const useNumeric = confirmed.length >= 3;
+  const items = useNumeric ? confirmed : getSafeImpactClaims();
+
+  if (items.length === 0) return null;
+
   return (
     <section
       id="trust"
@@ -99,21 +94,36 @@ export function TrustProof() {
       <div className="container-site relative z-10 flex flex-col items-center gap-12 lg:flex-row lg:items-center lg:justify-between lg:gap-16">
         <div className="flex w-full max-w-2xl flex-col gap-7 lg:max-w-[42rem] lg:shrink-0 lg:gap-8">
           <span className="font-mono text-xs tracking-[0.12em] text-white/80 sm:text-sm">
-            Our impact
+            How we work
           </span>
 
           <h2 className="font-heading text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-[3.25rem] lg:leading-[1.08] xl:text-[3.75rem]">
-            95% of projects delivered{" "}
-            <span className="text-[#7FE7FF]">on time, every sprint.</span>
+            {useNumeric ? (
+              <>
+                Delivery you can plan around —{" "}
+                <span className="text-[#7FE7FF]">clear scope, weekly demos.</span>
+              </>
+            ) : (
+              <>
+                Small team. Senior builders.{" "}
+                <span className="text-[#7FE7FF]">Direct access.</span>
+              </>
+            )}
           </h2>
 
-          <Button href={siteConfig.cta.href} size="lg" variant="light" className="w-fit">
+          <Button
+            href={calendlyHref("/")}
+            size="lg"
+            variant="light"
+            className="w-fit"
+            data-analytics="calendly"
+          >
             {siteConfig.cta.label}
           </Button>
 
           <div className="grid grid-cols-1 gap-8 border-t border-white/20 pt-8 sm:grid-cols-3 sm:gap-6 lg:gap-8">
-            {impactStats.map((stat) => (
-              <div key={stat.value} className="flex flex-col gap-2.5">
+            {items.map((stat) => (
+              <div key={stat.id} className="flex flex-col gap-2.5">
                 <span className="font-heading text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-[3.5rem] lg:leading-none">
                   {stat.value}
                 </span>
