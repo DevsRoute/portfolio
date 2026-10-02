@@ -15,7 +15,7 @@ import { siteConfig } from "@/lib/site-config";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Learn about DevsRoute — a software development team focused on building reliable digital products that help businesses grow.",
+    "Remote software studio in Gujranwala, Pakistan. Three co-founders building MVPs and AI features for funded founders and SaaS teams.",
   openGraph: {
     title: `About | ${siteConfig.name}`,
     description:
