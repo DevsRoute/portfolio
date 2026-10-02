@@ -1,28 +1,31 @@
 import Image from "next/image";
 import Link from "next/link";
-import { CalendarDays, Mail } from "lucide-react";
+import { CalendarDays, Mail, MapPin } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { services, siteConfig } from "@/lib/site-config";
+import { siteFacts } from "@/config/site-facts";
+import { calendlyHref, services, siteConfig } from "@/lib/site-config";
 
 const companyLinks = [
   { label: "About", href: "/about" },
   { label: "Work", href: "/work" },
   { label: "Approach", href: "/approach" },
+  { label: "For founders", href: "/founders" },
+  { label: "AI features", href: "/ai-features" },
   { label: "Contact", href: "/contact" },
 ] as const;
 
-// const exploreLinks = [
-//   { label: "Industries", href: "/#industries" },
-//   { label: "Projects", href: "/work" },
-//   { label: "Client Stories", href: "/#stories" },
-//   { label: "Services", href: "/#services" },
-// ] as const;
+const legalLinks = [
+  { label: "Privacy", href: "/privacy" },
+  { label: "Terms", href: "/terms" },
+] as const;
 
 const footerLinkClass =
   "text-sm text-white/90 transition-colors hover:text-[#1d81f2]";
 
 export function Footer() {
+  const year = new Date().getFullYear();
+
   return (
     <footer className="mt-auto bg-[#0e0d0d] bg-[linear-gradient(#ffffff0f_1px,#0000_1px),linear-gradient(90deg,#ffffff0f_1px,#0000_1px)] bg-[length:48px_48px] text-white">
       <div className="container-site relative pt-16 pb-10 sm:pt-20 sm:pb-12 lg:pt-24">
@@ -38,10 +41,10 @@ export function Footer() {
               />
             </Link>
             <p className="max-w-xs text-sm leading-7 text-white/80">
-              We design and build digital products that help businesses move
-              forward.
+              {siteFacts.companyName} — a small remote studio for MVPs and AI
+              products. Based in {siteFacts.locationLabel}.
             </p>
-            <Button href={siteConfig.cta.href} size="lg" className="w-fit">
+            <Button href={calendlyHref("/")} size="lg" className="w-fit" data-analytics="calendly">
               {siteConfig.cta.label}
             </Button>
           </div>
@@ -81,10 +84,6 @@ export function Footer() {
               <span className="font-mono text-[11px] tracking-[0.14em] text-white/60 uppercase">
                 Connect
               </span>
-              <p className="text-sm leading-6 text-white/80">
-                Have a project in mind? Reach out and we&apos;ll get back to
-                you.
-              </p>
               <a
                 href={`mailto:${siteConfig.email}`}
                 className={`inline-flex items-center gap-2.5 ${footerLinkClass}`}
@@ -93,28 +92,19 @@ export function Footer() {
                 {siteConfig.email}
               </a>
               <a
-                href={siteConfig.calendly.href}
+                href={calendlyHref("/")}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`inline-flex items-center gap-2.5 ${footerLinkClass}`}
+                data-analytics="calendly"
               >
                 <CalendarDays className="size-4 shrink-0 text-[#1d81f2]" />
                 {siteConfig.calendly.label}
               </a>
-              {/* <div className="mt-1 flex flex-col gap-2.5 border-t border-white/20 pt-4">
-                <span className="font-mono text-[11px] tracking-[0.14em] text-white/60 uppercase">
-                  Explore
-                </span>
-                {exploreLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className={footerLinkClass}
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-              </div> */}
+              <p className={`inline-flex items-start gap-2.5 ${footerLinkClass}`}>
+                <MapPin className="mt-0.5 size-4 shrink-0 text-[#1d81f2]" />
+                <span>{siteFacts.address}</span>
+              </p>
             </div>
           </div>
         </div>
@@ -127,10 +117,16 @@ export function Footer() {
         </div>
 
         <div className="mt-6 flex flex-col gap-3 border-t border-white/20 pt-6 text-sm text-white/70 sm:mt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p>© 2026 {siteConfig.name}. All rights reserved.</p>
-          <Link href="/contact" className={footerLinkClass}>
-            Let&apos;s talk
-          </Link>
+          <p>
+            © {year} {siteFacts.companyName}. All rights reserved.
+          </p>
+          <div className="flex flex-wrap gap-4">
+            {legalLinks.map((link) => (
+              <Link key={link.href} href={link.href} className={footerLinkClass}>
+                {link.label}
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </footer>

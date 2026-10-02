@@ -13,7 +13,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { services, siteConfig, type ServiceIcon } from "@/lib/site-config";
+import { trackCalendlyClick } from "@/lib/analytics/track";
+import { calendlyHref, services, siteConfig, type ServiceIcon } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
 
 const serviceIcons: Record<ServiceIcon, LucideIcon> = {
@@ -220,10 +221,12 @@ export function Header() {
 
           <div className="hidden shrink-0 lg:block">
             <Button
-              href={siteConfig.cta.href}
+              href={calendlyHref(pathname)}
               size="lg"
               variant={onHero ? "light" : "default"}
               className="h-11 text-sm whitespace-nowrap"
+              data-analytics="calendly"
+              onClick={() => trackCalendlyClick(pathname)}
             >
               {siteConfig.cta.label}
             </Button>
@@ -301,7 +304,16 @@ export function Header() {
                   {item.label}
                 </Link>
               ))}
-            <Button href={siteConfig.cta.href} size="lg" className="mt-2 w-full" onClick={() => setMenuOpen(false)}>
+            <Button
+              href={calendlyHref(pathname)}
+              size="lg"
+              className="mt-2 w-full"
+              data-analytics="calendly"
+              onClick={() => {
+                trackCalendlyClick(pathname);
+                setMenuOpen(false);
+              }}
+            >
               {siteConfig.cta.label}
             </Button>
           </nav>
