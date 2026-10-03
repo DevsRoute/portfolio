@@ -89,6 +89,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${plusJakartaSans.variable} ${onest.variable} ${geistMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
+      <head>
+        <link
+          rel="preload"
+          as="image"
+          href="/brand/devsroute-logo-color-sm.png"
+          type="image/png"
+          fetchPriority="high"
+        />
+      </head>
       <body className="flex min-h-full flex-col" suppressHydrationWarning>
         <Header />
         {children}
