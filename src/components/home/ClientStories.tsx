@@ -1,13 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { ArrowLeft, ArrowRight, Quote } from "lucide-react";
-import { Navigation } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
-import type { Swiper as SwiperInstance } from "swiper";
-
-import "swiper/css";
-import "swiper/css/navigation";
 
 import {
   getPublishableTestimonials,
@@ -27,7 +21,7 @@ function StoryCard({ story }: { story: Testimonial }) {
     .toUpperCase();
 
   return (
-    <article className="group flex h-full min-h-[22rem] flex-col gap-7 rounded-3xl border border-[#E6EBF3] bg-white p-7 transition-all duration-300 hover:border-[#1d81f2] hover:bg-[#1d81f2] hover:shadow-[0_20px_50px_rgb(29_129_242/0.28)] sm:min-h-[24rem] sm:p-8 lg:p-9">
+    <article className="group flex h-full min-h-[22rem] w-[min(88vw,22rem)] shrink-0 snap-start flex-col gap-7 rounded-3xl border border-[#E6EBF3] bg-white p-7 transition-all duration-300 hover:border-[#1d81f2] hover:bg-[#1d81f2] hover:shadow-[0_20px_50px_rgb(29_129_242/0.28)] sm:min-h-[24rem] sm:w-[calc((100%-1.25rem)/2)] sm:p-8 lg:w-[calc((100%-2.75rem)/3)] lg:p-9">
       <Quote
         aria-hidden
         className="size-8 shrink-0 text-[#1d81f2] transition-colors duration-300 group-hover:text-white sm:size-9"
@@ -61,21 +55,40 @@ function StoryCard({ story }: { story: Testimonial }) {
 
 export function ClientStories() {
   const stories = getPublishableTestimonials();
-  const [sliderReady, setSliderReady] = useState(false);
-  const [swiper, setSwiper] = useState<SwiperInstance | null>(null);
+  const scrollerRef = useRef<HTMLDivElement>(null);
   const [atStart, setAtStart] = useState(true);
   const [atEnd, setAtEnd] = useState(false);
 
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setSliderReady(true);
+  const syncNav = useCallback(() => {
+    const el = scrollerRef.current;
+    if (!el) return;
+    const max = el.scrollWidth - el.clientWidth;
+    setAtStart(el.scrollLeft <= 4);
+    setAtEnd(el.scrollLeft >= max - 4);
   }, []);
+
+  useEffect(() => {
+    const el = scrollerRef.current;
+    if (!el) return;
+    syncNav();
+    el.addEventListener("scroll", syncNav, { passive: true });
+    window.addEventListener("resize", syncNav);
+    return () => {
+      el.removeEventListener("scroll", syncNav);
+      window.removeEventListener("resize", syncNav);
+    };
+  }, [syncNav, stories.length]);
 
   if (stories.length === 0) return null;
 
-  function syncNav(instance: SwiperInstance) {
-    setAtStart(instance.isBeginning);
-    setAtEnd(instance.isEnd);
+  function scrollByDir(dir: -1 | 1) {
+    const el = scrollerRef.current;
+    if (!el) return;
+    const card = el.querySelector("article");
+    const amount = card
+      ? card.getBoundingClientRect().width + 20
+      : el.clientWidth * 0.8;
+    el.scrollBy({ left: dir * amount, behavior: "smooth" });
   }
 
   return (
@@ -115,7 +128,7 @@ export function ClientStories() {
                 type="button"
                 aria-label="Previous stories"
                 disabled={atStart}
-                onClick={() => swiper?.slidePrev()}
+                onClick={() => scrollByDir(-1)}
                 className={cn(
                   "inline-flex size-11 items-center justify-center rounded-full bg-[#1d81f2] text-white transition-colors",
                   "hover:bg-[#1d81f2]/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:bg-ink-200 disabled:text-ink-400",
@@ -127,7 +140,7 @@ export function ClientStories() {
                 type="button"
                 aria-label="Next stories"
                 disabled={atEnd}
-                onClick={() => swiper?.slideNext()}
+                onClick={() => scrollByDir(1)}
                 className={cn(
                   "inline-flex size-11 items-center justify-center rounded-full bg-[#1d81f2] text-white transition-colors",
                   "hover:bg-[#1d81f2]/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:bg-ink-200 disabled:text-ink-400",
@@ -139,43 +152,22 @@ export function ClientStories() {
           </div>
         </div>
 
-        {sliderReady ? (
-          <Swiper
-            modules={[Navigation]}
-            speed={650}
-            spaceBetween={20}
-            slidesPerView={1.08}
-            grabCursor
-            simulateTouch
-            allowTouchMove
-            touchStartPreventDefault={false}
-            threshold={5}
-            onSwiper={(instance) => {
-              setSwiper(instance);
-              syncNav(instance);
-            }}
-            onSlideChange={syncNav}
-            onTouchEnd={syncNav}
-            onResize={syncNav}
-            breakpoints={{
-              640: { slidesPerView: 2, spaceBetween: 20 },
-              1024: { slidesPerView: 3, spaceBetween: 22 },
-            }}
-            className="stories-swiper cursor-grab overflow-visible! active:cursor-grabbing"
-          >
-            {stories.map((story) => (
-              <SwiperSlide key={story.id} className="h-auto!">
-                <StoryCard story={story} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        ) : (
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {stories.slice(0, 3).map((story) => (
-              <StoryCard key={story.id} story={story} />
-            ))}
-          </div>
-        )}
+        <div
+          ref={scrollerRef}
+          tabIndex={0}
+          role="region"
+          aria-label="Client stories"
+          className={cn(
+            "flex gap-5 overflow-x-auto overscroll-x-contain scroll-smooth pb-1",
+            "snap-x snap-mandatory",
+            "[scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden",
+            "cursor-default outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2",
+          )}
+        >
+          {stories.map((story) => (
+            <StoryCard key={story.id} story={story} />
+          ))}
+        </div>
       </div>
     </section>
   );

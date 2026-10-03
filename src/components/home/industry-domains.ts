@@ -24,8 +24,8 @@ const allIndustryDomains: IndustryDomain[] = [
     description:
       "Chatbots, automation and AI features added to new or existing products, using OpenAI and modern web stacks.",
     href: "/services/ai-solutions",
-    image: "/brand/industries/ai-products.jpg",
-    imageAlt: "Placeholder visual for AI-powered product interfaces",
+    image: "/brand/industries/ai-powered-products.png",
+    imageAlt: "AI-powered product interfaces",
     needsImageReplace: true,
     enabled: true,
   },

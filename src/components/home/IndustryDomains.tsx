@@ -1,15 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
-import { Navigation } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
-import type { Swiper as SwiperInstance } from "swiper";
-
-import "swiper/css";
-import "swiper/css/navigation";
 
 import {
   industryDomains,
@@ -19,15 +13,15 @@ import { cn } from "@/lib/utils";
 
 function IndustryCard({ domain }: { domain: IndustryDomain }) {
   return (
-    <article className="group relative flex h-[28rem] flex-col overflow-hidden rounded-2xl sm:h-[30rem]">
+    <article className="group relative flex h-[28rem] w-[min(85vw,20rem)] shrink-0 snap-start flex-col overflow-hidden rounded-2xl sm:h-[30rem] sm:w-[calc((100%-1.25rem)/2)] lg:w-[calc((100%-2.75rem)/3)] xl:w-[calc((100%-4.5rem)/4)]">
       <Image
         src={domain.image}
         alt={domain.imageAlt}
         fill
+        draggable={false}
         sizes="(max-width: 640px) 85vw, (max-width: 1024px) 45vw, 25vw"
         className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
       />
-      {/* Dark gradient for WCAG-friendly white text over bright photos */}
       <div
         aria-hidden
         className="absolute inset-0 bg-gradient-to-b from-ink-950/70 via-ink-950/45 to-ink-950/65"
@@ -53,19 +47,40 @@ function IndustryCard({ domain }: { domain: IndustryDomain }) {
 }
 
 export function IndustryDomains() {
-  const [sliderReady, setSliderReady] = useState(false);
-  const [swiper, setSwiper] = useState<SwiperInstance | null>(null);
+  const scrollerRef = useRef<HTMLDivElement>(null);
   const [atStart, setAtStart] = useState(true);
   const [atEnd, setAtEnd] = useState(false);
 
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setSliderReady(true);
+  const syncNav = useCallback(() => {
+    const el = scrollerRef.current;
+    if (!el) return;
+    const max = el.scrollWidth - el.clientWidth;
+    setAtStart(el.scrollLeft <= 4);
+    setAtEnd(el.scrollLeft >= max - 4);
   }, []);
 
-  function syncNav(instance: SwiperInstance) {
-    setAtStart(instance.isBeginning);
-    setAtEnd(instance.isEnd);
+  useEffect(() => {
+    const el = scrollerRef.current;
+    if (!el) return;
+
+    syncNav();
+    el.addEventListener("scroll", syncNav, { passive: true });
+    window.addEventListener("resize", syncNav);
+
+    return () => {
+      el.removeEventListener("scroll", syncNav);
+      window.removeEventListener("resize", syncNav);
+    };
+  }, [syncNav]);
+
+  function scrollByDir(dir: -1 | 1) {
+    const el = scrollerRef.current;
+    if (!el) return;
+    const card = el.querySelector("article");
+    const amount = card
+      ? card.getBoundingClientRect().width + 20
+      : el.clientWidth * 0.8;
+    el.scrollBy({ left: dir * amount, behavior: "smooth" });
   }
 
   return (
@@ -92,7 +107,7 @@ export function IndustryDomains() {
               type="button"
               aria-label="Previous industries"
               disabled={atStart}
-              onClick={() => swiper?.slidePrev()}
+              onClick={() => scrollByDir(-1)}
               className={cn(
                 "inline-flex size-11 items-center justify-center rounded-full bg-brand-600 text-white transition-colors",
                 "hover:bg-brand-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2",
@@ -105,7 +120,7 @@ export function IndustryDomains() {
               type="button"
               aria-label="Next industries"
               disabled={atEnd}
-              onClick={() => swiper?.slideNext()}
+              onClick={() => scrollByDir(1)}
               className={cn(
                 "inline-flex size-11 items-center justify-center rounded-full bg-brand-600 text-white transition-colors",
                 "hover:bg-brand-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2",
@@ -117,44 +132,22 @@ export function IndustryDomains() {
           </div>
         </div>
 
-        {sliderReady ? (
-          <Swiper
-            modules={[Navigation]}
-            speed={650}
-            spaceBetween={20}
-            slidesPerView={1.12}
-            grabCursor
-            simulateTouch
-            allowTouchMove
-            touchStartPreventDefault={false}
-            threshold={5}
-            onSwiper={(instance) => {
-              setSwiper(instance);
-              syncNav(instance);
-            }}
-            onSlideChange={syncNav}
-            onTouchEnd={syncNav}
-            onResize={syncNav}
-            breakpoints={{
-              640: { slidesPerView: 2, spaceBetween: 20 },
-              1024: { slidesPerView: 3, spaceBetween: 22 },
-              1280: { slidesPerView: 4, spaceBetween: 24 },
-            }}
-            className="industries-swiper cursor-grab overflow-visible! active:cursor-grabbing"
-          >
-            {industryDomains.map((domain) => (
-              <SwiperSlide key={domain.id} className="h-auto!">
-                <IndustryCard domain={domain} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        ) : (
-          <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
-            {industryDomains.slice(0, 4).map((domain) => (
-              <IndustryCard key={domain.id} domain={domain} />
-            ))}
-          </div>
-        )}
+        <div
+          ref={scrollerRef}
+          tabIndex={0}
+          role="region"
+          aria-label="Industry domains"
+          className={cn(
+            "flex gap-5 overflow-x-auto overscroll-x-contain scroll-smooth pb-1",
+            "snap-x snap-mandatory",
+            "[scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden",
+            "cursor-default outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2",
+          )}
+        >
+          {industryDomains.map((domain) => (
+            <IndustryCard key={domain.id} domain={domain} />
+          ))}
+        </div>
       </div>
     </section>
   );

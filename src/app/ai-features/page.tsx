@@ -30,7 +30,7 @@ const faqs = [
   },
   {
     q: "How do we start?",
-    a: "Book a 15-min call. We’ll map a small, shippable AI feature and a realistic timeline.",
+    a: "Book a 20-min call. We’ll map a small, shippable AI feature and a realistic timeline.",
   },
 ] as const;
 
@@ -93,7 +93,7 @@ export default function AiFeaturesPage() {
             Process
           </h2>
           <ol className="mt-8 list-decimal space-y-3 pl-5 text-base leading-8 text-ink-500">
-            <li>15-min call to pick one high-value AI use case</li>
+            <li>20-min call to pick one high-value AI use case</li>
             <li>One-page scope: data, UX, model choice, success criteria</li>
             <li>Build and integrate with weekly demos</li>
             <li>Handoff with docs so your team can own it</li>

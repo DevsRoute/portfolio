@@ -13,7 +13,7 @@ import { isConfirmed, siteFacts } from "@/config/site-facts";
 const expectations = [
   {
     title: "Book a call",
-    description: `Pick a 15-min slot and we'll walk through goals, constraints, and next steps.`,
+    description: `Pick a 20-min slot and we'll walk through goals, constraints, and next steps.`,
   },
   {
     title: "Discovery call",
@@ -140,7 +140,7 @@ export function ContactMain() {
                 Reach us directly
               </h2>
               <p className="mt-3 text-sm leading-7 text-white/88">
-                Prefer email or a quick call? Book a 15-min technical call and
+                Prefer email or a quick call? Book a 20-min technical call and
                 we&apos;ll help you map the next step.
               </p>
 
@@ -164,7 +164,7 @@ export function ContactMain() {
                 <div className="inline-flex items-start gap-3 text-sm text-white/88 sm:text-base">
                   <Clock3 className="mt-0.5 size-5 shrink-0" strokeWidth={2} />
                   <span>
-                    15-min call · Mon–Fri
+                    20-min call · Mon–Fri
                     {isConfirmed(siteFacts.usTimeOverlap)
                       ? ` · ${siteFacts.usTimeOverlap}`
                       : " · US-friendly overlap"}

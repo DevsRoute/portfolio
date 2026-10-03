@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 const steps = [
   {
     title: "Scope call",
-    body: "A 15-minute call to understand the idea, constraints, and what “done” means for v1.",
+    body: "A 20-minute call to understand the idea, constraints, and what “done” means for v1.",
   },
   {
     title: "One-page scope",

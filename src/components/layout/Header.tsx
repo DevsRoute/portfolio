@@ -55,14 +55,12 @@ function isNavItemActive(href: string, pathname: string) {
   return pathname === href;
 }
 
-function servicesTriggerClass(solid: boolean, onHero = false) {
+function servicesTriggerClass(solid: boolean) {
   return cn(
     "inline-flex items-center gap-1.5 border-0 bg-transparent text-[0.95rem] font-medium outline-none select-none",
     solid
       ? "text-foreground/80 hover:text-brand-600 data-popup-open:text-brand-600"
-      : onHero
-        ? "text-white/90 hover:text-white data-popup-open:text-white"
-        : "text-ink-700/85 hover:text-brand-600 data-popup-open:text-brand-600",
+      : "text-ink-700/85 hover:text-brand-600 data-popup-open:text-brand-600",
   );
 }
 
@@ -77,14 +75,14 @@ function useIsClient() {
   );
 }
 
-function ServicesMenu({ solid, onHero }: { solid: boolean; onHero?: boolean }) {
+function ServicesMenu({ solid }: { solid: boolean }) {
   const ready = useIsClient();
   const pathname = usePathname();
   const isServicesActive = pathname.startsWith("/services");
 
   if (!ready) {
     return (
-      <span className={servicesTriggerClass(solid, onHero)}>
+      <span className={servicesTriggerClass(solid)}>
         Services
         <ChevronDown className="size-4" />
       </span>
@@ -99,8 +97,8 @@ function ServicesMenu({ solid, onHero }: { solid: boolean; onHero?: boolean }) {
         closeDelay={120}
         className={cn(
           "group",
-          servicesTriggerClass(solid, onHero),
-          isServicesActive && (solid || !onHero) && "text-brand-600",
+          servicesTriggerClass(solid),
+          isServicesActive && "text-brand-600",
         )}
       >
         Services
@@ -149,7 +147,6 @@ export function Header() {
   }, [menuOpen]);
 
   const solid = scrolled || menuOpen;
-  const onHero = pathname === "/" && !solid;
 
   return (
     <header
@@ -162,12 +159,10 @@ export function Header() {
     >
       <div
         className={cn(
-          "container-site transition-[background-color,box-shadow,color,border-radius] duration-300",
+          "container-site text-ink-700 transition-[background-color,box-shadow,color,border-radius] duration-300",
           solid
             ? "rounded-[5px] bg-background/95 text-foreground shadow-sm backdrop-blur-md"
-            : onHero
-              ? "bg-transparent text-white"
-              : "bg-transparent text-ink-700",
+            : "bg-transparent",
           menuOpen &&
             "flex max-h-[calc(100dvh-1.25rem)] flex-col overflow-hidden sm:max-h-[calc(100dvh-1.5rem)]",
         )}
@@ -178,26 +173,23 @@ export function Header() {
             className="relative z-10 flex shrink-0 items-center"
             onClick={() => setMenuOpen(false)}
           >
-            {/* White logo on hero; colored logo when scrolled / solid header */}
             <Image
-              src={
-                onHero
-                  ? "/brand/devsroute-logo-white.png"
-                  : "/brand/devsroute-logo-color.png"
-              }
+              src="/brand/devsroute-logo-color-sm.png"
               alt={siteConfig.name}
               width={218}
               height={38}
               priority
+              fetchPriority="high"
+              unoptimized
+              sizes="218px"
               className="h-8 w-auto sm:h-9"
-              key={onHero ? "logo-white" : "logo-color"}
             />
           </Link>
 
           <nav aria-label="Primary" className="hidden items-center gap-6 lg:flex xl:gap-8">
             {siteConfig.nav.map((item) =>
               item.label === "Services" ? (
-                <ServicesMenu key={item.href} solid={solid} onHero={onHero} />
+                <ServicesMenu key={item.href} solid={solid} />
               ) : (
                 <Link
                   key={item.href}
@@ -206,11 +198,8 @@ export function Header() {
                     "text-[0.95rem] font-medium transition-colors",
                     solid
                       ? "text-foreground/80 hover:text-brand-600"
-                      : onHero
-                        ? "text-white/90 hover:text-white"
-                        : "text-ink-700/85 hover:text-brand-600",
-                    isNavItemActive(item.href, pathname) &&
-                      (onHero ? "text-white" : "text-brand-600"),
+                      : "text-ink-700/85 hover:text-brand-600",
+                    isNavItemActive(item.href, pathname) && "text-brand-600",
                   )}
                 >
                   {item.label}
@@ -223,7 +212,7 @@ export function Header() {
             <Button
               href={calendlyHref(pathname)}
               size="lg"
-              variant={onHero ? "light" : "default"}
+              variant="default"
               className="h-11 text-sm whitespace-nowrap"
               data-analytics="calendly"
               onClick={() => trackCalendlyClick(pathname)}
@@ -234,10 +223,7 @@ export function Header() {
 
           <button
             type="button"
-            className={cn(
-              "inline-flex size-10 items-center justify-center rounded-[5px] lg:hidden",
-              onHero ? "text-white" : "text-ink-700",
-            )}
+            className="inline-flex size-10 items-center justify-center rounded-[5px] text-ink-700 lg:hidden"
             aria-expanded={menuOpen}
             aria-controls="mobile-nav"
             aria-label={menuOpen ? "Close menu" : "Open menu"}

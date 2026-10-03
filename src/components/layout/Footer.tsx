@@ -33,10 +33,12 @@ export function Footer() {
           <div className="flex w-full max-w-sm shrink-0 flex-col gap-5">
             <Link href="/" className="inline-flex w-fit">
               <Image
-                src="/brand/devsroute-logo-white.png"
+                src="/brand/devsroute-logo-white-sm.png"
                 alt={siteConfig.name}
                 width={200}
                 height={34}
+                unoptimized
+                sizes="200px"
                 className="h-8 w-auto sm:h-9"
               />
             </Link>
