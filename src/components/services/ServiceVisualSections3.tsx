@@ -46,17 +46,17 @@ export function ServiceIndustriesVisual({ service }: { service: ServicePageData 
         />
         <div className="mt-12 grid gap-6 sm:mt-14 sm:grid-cols-2 sm:gap-8 lg:grid-cols-4 lg:gap-6 xl:gap-8">
           {visual.industryBlocks.map((block) => (
-            <article key={block.name} className="group">
-              <div className="relative aspect-16/9 overflow-hidden rounded-2xl bg-ink-100">
+            <article key={block.name} className="group flex h-full flex-col">
+              <div className="relative aspect-[3/4] overflow-hidden rounded-2xl bg-ink-100">
                 <Image
                   src={block.image}
                   alt={block.imageAlt}
                   fill
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  className="object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]"
                 />
               </div>
-              <div className="pt-4 sm:pt-5">
+              <div className="flex flex-1 flex-col pt-4 sm:pt-5">
                 <h3 className="font-heading text-lg font-semibold text-ink-700 transition-colors group-hover:text-[#1d81f2] sm:text-xl">
                   {block.name}
                 </h3>
@@ -180,7 +180,7 @@ export function ServiceProjectsShowcase({ service }: { service: ServicePageData 
                   {project.title}
                 </h3>
                 <p className="mt-2 line-clamp-2 text-sm leading-6 text-white/75">
-                  Our role: {project.roleSummary}
+                  {project.summary}
                 </p>
               </div>
             </Link>

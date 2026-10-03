@@ -43,7 +43,7 @@ export const siteFacts = {
 
   /** Primary CTA — keep label + URL in sync site-wide via site-config */
   calendly: {
-    label: "Book a 15-min call",
+    label: "Book a 20-min call",
     href: "https://calendly.com/devsroute/technical-read",
   },
 

@@ -65,7 +65,7 @@ export function AboutWorkPreview() {
                   {project.title}
                 </h3>
                 <p className="mt-2.5 line-clamp-2 text-sm leading-6 text-ink-500">
-                  Our role: {project.roleSummary}
+                  {project.summary}
                 </p>
               </div>
             </Link>
