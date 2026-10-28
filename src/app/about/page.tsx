@@ -34,7 +34,7 @@ export default function AboutPage() {
       <AboutExpertise />
       <AboutMetrics />
       <AboutWorkPreview />
-      <AboutTeam />
+      {/* <AboutTeam /> */}
       <AboutCta />
     </main>
   );

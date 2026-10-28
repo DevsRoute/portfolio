@@ -20,11 +20,11 @@ function IndustryCard({ domain }: { domain: IndustryDomain }) {
         fill
         draggable={false}
         sizes="(max-width: 640px) 85vw, (max-width: 1024px) 45vw, 25vw"
-        className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+        className="object-cover object-[center_28%] transition-transform duration-500 group-hover:scale-[1.04]"
       />
       <div
         aria-hidden
-        className="absolute inset-0 bg-gradient-to-b from-ink-950/70 via-ink-950/45 to-ink-950/65"
+        className="absolute inset-0 bg-gradient-to-b from-ink-950/80 via-ink-950/55 to-ink-950/72"
       />
 
       <div className="relative z-10 flex h-full flex-col p-5 sm:p-6">

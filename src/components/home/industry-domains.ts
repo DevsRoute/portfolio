@@ -24,9 +24,8 @@ const allIndustryDomains: IndustryDomain[] = [
     description:
       "Chatbots, automation and AI features added to new or existing products, using OpenAI and modern web stacks.",
     href: "/services/ai-solutions",
-    image: "/brand/industries/ai-powered-products.png",
-    imageAlt: "AI-powered product interfaces",
-    needsImageReplace: true,
+    image: "/brand/previews/ai-messaging.webp",
+    imageAlt: "Conversational AI messaging product interface",
     enabled: true,
   },
   {
@@ -35,8 +34,8 @@ const allIndustryDomains: IndustryDomain[] = [
     description:
       "From idea to launch-ready MVP in 2-6 weeks, then scale to multi-tenant SaaS as your users grow.",
     href: "/services/custom-software-development",
-    image: "/brand/industries/saas-mvp.jpg",
-    imageAlt: "SaaS dashboard on a laptop overlooking a city skyline",
+    image: "/brand/previews/saas-compliance.webp",
+    imageAlt: "SaaS product dashboard for compliance training",
     enabled: true,
   },
   {
@@ -45,8 +44,8 @@ const allIndustryDomains: IndustryDomain[] = [
     description:
       "Booking platforms and travel experiences that help guests discover, plan, and go.",
     href: "/services/mobile-app-development",
-    image: "/brand/industries/travel-tourism.jpg",
-    imageAlt: "Travel booking app with passport, camera, and boarding passes",
+    image: "/brand/previews/travel-website.webp",
+    imageAlt: "Travel website with destinations and a booking call to action",
     enabled: true,
   },
   {
@@ -65,9 +64,8 @@ const allIndustryDomains: IndustryDomain[] = [
     description:
       "Learning platforms and tutoring tools for schools, tutors and course businesses.",
     href: "/services/web-application-development",
-    image: "/brand/industries/edtech-learning.jpg",
-    imageAlt: "Placeholder visual for learning and tutoring platforms",
-    needsImageReplace: true,
+    image: "/brand/previews/learning-platform.webp",
+    imageAlt: "Learning platform interface for courses and tutoring",
     enabled: true,
   },
   {
@@ -76,8 +74,8 @@ const allIndustryDomains: IndustryDomain[] = [
     description:
       "Onboarding, identity verification and finance-related web products.",
     href: "/services/web-application-development",
-    image: "/brand/industries/fintech-banking.jpg",
-    imageAlt: "Mobile banking app with cards and coins on a studio surface",
+    image: "/brand/previews/identity-verification.webp",
+    imageAlt: "Identity verification product for onboarding and KYC checks",
     enabled: true,
   },
   {

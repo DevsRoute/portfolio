@@ -72,7 +72,7 @@ export default function WorkPage() {
                       alt={project.screenshotAlt}
                       fill
                       sizes="(max-width: 640px) 100vw, 33vw"
-                      className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                      className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
                     />
                   </div>
                   <div className="flex flex-1 flex-col gap-2 p-5">
@@ -113,7 +113,7 @@ export default function WorkPage() {
                           alt={project.screenshotAlt}
                           fill
                           sizes="(max-width: 640px) 100vw, 33vw"
-                          className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                          className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
                         />
                       </div>
                       <div className="flex flex-1 flex-col gap-2 p-4 sm:p-5">

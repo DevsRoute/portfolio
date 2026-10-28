@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
@@ -39,26 +38,16 @@ function HeroCtas() {
 
 export function Hero() {
   return (
-    <section className="relative isolate min-h-[min(100svh,48rem)] overflow-hidden bg-[#eaf3fb] lg:min-h-svh">
-      <Image
-        src="/brand/hero-bg-sm.webp"
-        alt=""
-        fill
-        priority
-        fetchPriority="high"
-        sizes="100vw"
-        className="object-cover object-center"
-        aria-hidden
-      />
+    <section className="relative isolate min-h-[min(100svh,48rem)] overflow-hidden bg-[#F7F9FC] lg:min-h-svh">
       <div
         aria-hidden
         className="absolute inset-0"
         style={{
           background: [
-            "radial-gradient(55% 75% at 14% 18%, #bfe3ff 0%, #bfe3ff00 60%)",
-            "radial-gradient(45% 65% at 88% 8%, #9fd4ff 0%, #9fd4ff00 58%)",
-            "radial-gradient(60% 80% at 78% 92%, #63c5ff 0%, #63c5ff00 55%)",
-            "linear-gradient(#eaf3fbb3, #fffffff2 78%)",
+            "radial-gradient(42% 55% at 18% 22%, #bfe3ff 0%, transparent 68%)",
+            "radial-gradient(36% 48% at 86% 12%, #9fd4ffcc 0%, transparent 62%)",
+            "radial-gradient(48% 42% at 72% 88%, #63c5ff99 0%, transparent 58%)",
+            "linear-gradient(180deg, #f7f9fc 0%, #ffffff 72%)",
           ].join(","),
         }}
       />

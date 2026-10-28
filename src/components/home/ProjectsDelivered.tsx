@@ -26,7 +26,7 @@ function ProjectCard({ project }: { project: Project }) {
           fill
           draggable={false}
           sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 30vw"
-          className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+          className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
         />
       </div>
       <div className="flex flex-1 flex-col gap-2 p-5 sm:p-6">

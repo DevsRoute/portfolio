@@ -80,13 +80,13 @@ function ServiceAccordionItem({
       >
         <div className="overflow-hidden">
           <div className="flex flex-col gap-6 pb-7 pl-0 sm:pb-8 sm:pl-12 lg:flex-row lg:gap-10 lg:pb-10 lg:pl-[4.5rem]">
-            <div className="relative h-48 w-full shrink-0 overflow-hidden rounded-2xl bg-ink-100 sm:h-56 lg:h-52 lg:w-72 xl:w-80">
+            <div className="relative h-52 w-full shrink-0 overflow-hidden rounded-2xl border border-ink-100 bg-ink-100 sm:h-60 lg:h-56 lg:w-80 xl:w-96">
               <Image
                 src={service.image}
                 alt={service.imageAlt}
                 fill
-                sizes="(max-width: 1024px) 100vw, 320px"
-                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 384px"
+                className="object-cover object-top"
               />
             </div>
 
