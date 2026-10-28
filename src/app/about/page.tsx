@@ -15,7 +15,7 @@ import { siteConfig } from "@/lib/site-config";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Remote software studio in Gujranwala, Pakistan. Three co-founders building MVPs and AI features for funded founders and SaaS teams.",
+    "Remote software studio for startups and B2B founders. SaaS MVP development and AI product development, with a clear scope and a defined end date.",
   openGraph: {
     title: `About | ${siteConfig.name}`,
     description:

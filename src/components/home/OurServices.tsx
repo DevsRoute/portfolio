@@ -44,14 +44,14 @@ function ServiceAccordionItem({
           {formatIndex(index)}
         </span>
 
-        <span
+        <h3
           className={cn(
             "min-w-0 flex-1 font-heading text-xl font-semibold tracking-tight transition-colors sm:text-2xl lg:text-[1.85rem]",
             open ? "text-brand-600" : "text-ink-700 group-hover:text-brand-600",
           )}
         >
           {service.title}
-        </span>
+        </h3>
 
         <span
           className={cn(
@@ -145,7 +145,7 @@ export function OurServices() {
           </h2>
 
           <p className="max-w-xs text-sm leading-7 text-ink-500 sm:text-base sm:leading-8 lg:absolute lg:left-1/2 lg:max-w-[14rem] lg:-translate-x-1/2 lg:text-center">
-            From strategy to delivery. Engineering that ships.
+            SaaS MVP development and AI product development.
           </p>
 
           <Button href="/#services" size="lg" className="w-fit">

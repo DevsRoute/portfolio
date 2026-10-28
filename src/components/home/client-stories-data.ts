@@ -10,7 +10,7 @@ export const clientStories: ClientStory[] = [
   {
     id: "sarah",
     quote:
-      "DevsRoute turned our product idea into a launch-ready platform in weeks, not months. Clear communication and solid engineering every step of the way.",
+      "DevsRoute turned our product idea into a launch-ready platform. Clear communication and solid engineering every step of the way.",
     name: "Sarah Mitchell",
     role: "CEO, NorthPeak Finance",
     initials: "SM",

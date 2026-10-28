@@ -15,9 +15,8 @@ export function AboutTeam() {
             <span className="text-[#1d81f2]">One small studio.</span>
           </h2>
           <p className="mt-5 text-sm leading-7 text-ink-500 sm:text-base sm:leading-8">
-            DevsRoute is a remote software studio in {siteFacts.locationLabel}.
-            We work with funded founders and SaaS teams — and you talk directly
-            to the people building.
+            DevsRoute is a remote software studio. We work with startups and
+            B2B founders — and you talk directly to the people building.
             {isConfirmed(siteFacts.usTimeOverlap)
               ? ` Overlap with US time zones: ${siteFacts.usTimeOverlap}.`
               : null}

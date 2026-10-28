@@ -38,8 +38,8 @@ export type Founder = {
 export const siteFacts = {
   companyName: "DevsRoute",
   email: "hello@devsroute.com",
-  address: "Block D, MasterCity, Gujranwala, Pakistan",
-  locationLabel: "MasterCity, Gujranwala, Pakistan",
+  address: "",
+  locationLabel: "Remote",
 
   /** Primary CTA — keep label + URL in sync site-wide via site-config */
   calendly: {
@@ -47,8 +47,8 @@ export const siteFacts = {
     href: "https://calendly.com/devsroute/technical-read",
   },
 
-  /** Typical MVP timeline (always safe to state) */
-  mvpTimeline: "2-6 weeks",
+  /** Scope and end date are agreed on the first call. */
+  mvpTimeline: "Clear scope",
 
   /** Safe claims — toggle individually */
   claims: {
@@ -96,21 +96,21 @@ export const siteFacts = {
       name: "Zubair Ahmad",
       role: "Co-Founder",
       photo: "/brand/team/zubair.jpg",
-      photoAlt: "Portrait placeholder for Zubair Ahmad",
+      photoAlt: "Zubair Ahmad, DevsRoute co-founder",
     },
     {
       id: "saboor",
       name: "Saboor Shahzad",
       role: "Co-Founder",
       photo: "/brand/team/saboor.jpg",
-      photoAlt: "Portrait placeholder for Saboor Shahzad",
+      photoAlt: "Saboor Shahzad, DevsRoute co-founder",
     },
     {
       id: "haris",
       name: "Haris Awais",
       role: "Co-Founder",
       photo: "/brand/team/haris.jpg",
-      photoAlt: "Portrait placeholder for Haris Awais",
+      photoAlt: "Haris Awais, DevsRoute co-founder",
     },
   ] satisfies Founder[],
 
@@ -179,7 +179,7 @@ export function getSafeImpactClaims(): { id: string; value: string; label: strin
     items.push({
       id: "mvp-timeline",
       value: siteFacts.mvpTimeline,
-      label: "typical MVP timeline",
+      label: "and a defined end date",
     });
   }
   if (siteFacts.claims.seniorDevelopersOnly) {

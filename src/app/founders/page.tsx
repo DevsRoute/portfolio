@@ -5,9 +5,9 @@ import { Button } from "@/components/ui/button";
 import { calendlyHref, siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
-  title: "MVP for Funded Founders",
+  title: "SaaS MVP Development for Founders",
   description:
-    "Scoped MVPs in 2-6 weeks for funded non-technical founders. Senior developers, weekly demos, direct access — no hiring detour.",
+    "SaaS MVP development for startups and B2B founders. Clear scope and a defined end date, a demo every week, and direct access to the developers.",
   alternates: { canonical: `${siteConfig.url}/founders` },
   robots: { index: true, follow: true },
 };
@@ -37,8 +37,8 @@ const faqs = [
     a: "No. Many founders come to us before hiring. We keep scope honest so you can validate before building a full team.",
   },
   {
-    q: "What does 2-6 weeks actually cover?",
-    a: "A focused MVP — the smallest useful product for your next milestone. Timeline depends on scope we agree together.",
+    q: "How long does an MVP take?",
+    a: "It depends on scope. The end date is agreed on the first call, and there is a demo every week.",
   },
   {
     q: "Who do I talk to day to day?",
@@ -55,12 +55,15 @@ export default function FoundersPage() {
             For founders
           </p>
           <h1 className="mt-4 font-heading text-3xl font-semibold tracking-tight text-ink-700 sm:text-4xl lg:text-[2.75rem]">
-            Stop losing months to hiring.{" "}
-            <span className="text-brand-500">Ship an MVP in 2-6 weeks.</span>
+            SaaS MVP development{" "}
+            <span className="text-brand-500">
+              with a clear scope and a defined end date.
+            </span>
           </h1>
           <p className="mt-5 text-base leading-7 text-ink-500 sm:text-lg">
-            You&apos;re funded. You&apos;re non-technical (or lightly technical).
-            You need a real product — not a six-month recruiting loop.
+            For startups and B2B founders, including founders who are not
+            technical. You get a written scope, a defined end date, and a demo
+            every week.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button href={calendlyHref("/founders")} size="lg">
@@ -79,9 +82,8 @@ export default function FoundersPage() {
             The problem
           </h2>
           <p className="mt-4 text-base leading-8 text-ink-500">
-            Hiring a full team takes months. Agencies pad timelines. Freelancers
-            disappear. Meanwhile your runway and investor updates keep moving.
-            You need a small senior team that scopes tightly and ships.
+            Hiring a full team takes attention away from the product. You need
+            a small senior team, a clear scope, and a defined end date.
           </p>
         </div>
       </section>
@@ -92,8 +94,8 @@ export default function FoundersPage() {
             Our offer
           </h2>
           <p className="mt-4 text-base leading-8 text-ink-500">
-            A scoped MVP in {siteConfig.name === "DevsRoute" ? "2-6 weeks" : "2-6 weeks"}{" "}
-            with senior developers, weekly demos, and a clear written scope
+            SaaS MVP development with a clear scope and a defined end date,
+            senior developers, and a demo every week. The scope is written
             before we start.
           </p>
         </div>

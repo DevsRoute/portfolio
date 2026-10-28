@@ -56,7 +56,7 @@ export default function TermsPage() {
             Contact
           </h2>
           <p>
-            {siteFacts.companyName} · {siteFacts.email} · {siteFacts.address}
+            {siteFacts.companyName} · {siteFacts.email}
           </p>
           <p>
             <Link href="/privacy" className="font-medium text-brand-600">

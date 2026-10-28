@@ -98,17 +98,10 @@ export function TrustProof() {
           </span>
 
           <h2 className="font-heading text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-[3.25rem] lg:leading-[1.08] xl:text-[3.75rem]">
-            {useNumeric ? (
-              <>
-                Delivery you can plan around —{" "}
-                <span className="text-[#7FE7FF]">clear scope, weekly demos.</span>
-              </>
-            ) : (
-              <>
-                Small team. Senior builders.{" "}
-                <span className="text-[#7FE7FF]">Direct access.</span>
-              </>
-            )}
+            Discover, design, build, and launch.{" "}
+            <span className="text-[#7FE7FF]">
+              Clear scope and a defined end date.
+            </span>
           </h2>
 
           <Button

@@ -14,15 +14,14 @@ export function AboutIntro() {
 
           <div className="space-y-5 text-sm leading-7 text-ink-500 sm:space-y-6 sm:text-base sm:leading-8">
             <p>
-              {siteFacts.companyName} is a small remote team based in{" "}
-              {siteFacts.locationLabel}. We help funded founders launch MVPs and
-              SaaS teams add AI features — without inventing case studies or
-              padding timelines.
+              {siteFacts.companyName} is a small remote team. We help startups
+              and B2B founders with SaaS MVP development and AI product
+              development — without inventing case studies.
             </p>
             <p>
-              You work directly with the developers. Scope stays written and
-              honest. Typical MVP builds land in {siteFacts.mvpTimeline} when
-              the brief is clear.
+              You work directly with the developers. Every project starts with
+              a clear scope and a defined end date, and you see a demo every
+              week.
             </p>
             <p>
               We&apos;re not a 100-person agency. We&apos;re three co-founders

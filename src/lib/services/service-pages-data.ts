@@ -261,7 +261,7 @@ export const servicePages: ServicePageData[] = [
       {
         question: "How long does custom software development take?",
         answer:
-          "Timelines depend on scope, complexity, integrations, and how clearly requirements are defined. A focused MVP may take a few months, while larger platforms are usually delivered in phases so you can launch value early and expand over time.",
+          "It depends on scope, complexity, and integrations. The end date is agreed before build starts, and there is a demo every week. Larger platforms are delivered in phases.",
       },
       {
         question: "Can custom software integrate with existing systems?",
@@ -548,7 +548,7 @@ export const servicePages: ServicePageData[] = [
       {
         question: "How long does mobile app development take?",
         answer:
-          "A focused MVP may take a few months, while more complex apps with integrations, payments, and advanced features usually require phased delivery. We typically break work into milestones so you can launch value early.",
+          "It depends on scope. A focused app gets a clear scope and a defined end date. More complex apps with integrations, payments, and advanced features are delivered in phases, with a demo every week.",
       },
       {
         question: "Can you help with App Store and Google Play launch?",
@@ -705,7 +705,7 @@ export const servicePages: ServicePageData[] = [
       {
         question: "How long does AI development take?",
         answer:
-          "A focused prototype or single AI feature may move quickly, while larger systems with integrations, governance, and monitoring require phased delivery. We usually start with a clear pilot use case.",
+          "It depends on scope. A single AI feature gets a clear scope and a defined end date. Larger systems with integrations, governance, and monitoring are delivered in phases, with a demo every week.",
       },
       {
         question: "Can AI help automate internal business processes?",

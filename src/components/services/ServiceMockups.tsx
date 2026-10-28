@@ -227,7 +227,7 @@ export function AiSolutionsMockup({ className }: { className?: string }) {
           </div>
           <div className="space-y-2">
             <div className="ml-auto max-w-[85%] rounded-2xl rounded-br-md bg-brand-500 px-3 py-2 text-[0.6rem] text-white">
-              Summarize this week&apos;s support tickets
+              Summarize open support tickets
             </div>
             <div className="max-w-[90%] rounded-2xl rounded-bl-md bg-ink-50 px-3 py-2 text-[0.6rem] text-ink-600">
               42 tickets resolved. Top issue: onboarding setup. 3 accounts need follow-up.

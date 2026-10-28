@@ -49,9 +49,9 @@ export const cta = {
 
 export const siteConfig = {
   name: siteFacts.companyName,
-  title: "DevsRoute | MVP & AI Software Development for Startups",
+  title: "SaaS MVP Development & AI Product Development | DevsRoute",
   description:
-    "A small remote team of senior developers for funded founders and SaaS teams. MVPs and AI products in 2-6 weeks — talk directly to the people building.",
+    "SaaS MVP development and AI product development for startups and B2B founders. Clear scope and a defined end date. Talk directly to the team building your product.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://devsroute.com",
   email: siteFacts.email,
   address: siteFacts.address,

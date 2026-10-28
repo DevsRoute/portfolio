@@ -94,8 +94,8 @@ export function ProjectsDelivered() {
               Projects Delivered
             </p>
             <h2 className="mt-4 font-heading text-3xl font-semibold tracking-tight text-ink-700 sm:text-4xl lg:text-[2.75rem] lg:leading-[1.12]">
-              Real work.{" "}
-              <span className="text-brand-500">Honest roles.</span>
+              Work
+              <span className="text-brand-500"> we have done.</span>
             </h2>
             {hasAnonymousProjects(siteFacts.showConcepts) ? (
               <p className="mt-3 text-sm text-ink-500">
@@ -105,8 +105,7 @@ export function ProjectsDelivered() {
           </div>
 
           <p className="max-w-md text-sm leading-7 text-ink-500 sm:text-base sm:leading-8 lg:absolute lg:left-1/2 lg:max-w-[18rem] lg:-translate-x-1/2 lg:text-center">
-            A selection of products where we contributed front-end and web
-            development across SaaS, AI, FinTech, and more.
+            Six products. Honest roles. No invented results.
           </p>
 
           <div className="flex shrink-0 items-center gap-2">

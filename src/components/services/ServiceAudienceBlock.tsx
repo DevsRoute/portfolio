@@ -27,7 +27,7 @@ export function ServiceAudienceBlock({
             </p>
             <p className="mt-3 text-base leading-8 text-ink-600">{forWho}</p>
             <p className="mt-6 font-mono text-xs tracking-[0.14em] text-brand-600 uppercase">
-              Typical timeline
+              Scope
             </p>
             <p className="mt-3 text-base leading-8 text-ink-600">{timeline}</p>
             {!siteFacts.certifications.hipaa &&
@@ -82,18 +82,20 @@ const audienceBySlug: Record<
       "Weekly demos and direct developer access",
       "Handoff notes your team can own",
     ],
-    timeline: "Often 2–6 weeks for a focused first feature, depending on scope and data access.",
+    timeline:
+      "It depends on scope. You get a clear scope and a defined end date, agreed before we start, and a demo every week.",
   },
   "custom-software-development": {
     forWho:
-      "Funded founders and product teams that need a scoped MVP or custom product built by senior developers.",
+      "Startups and B2B founders that need SaaS MVP development or a custom product built by senior developers.",
     whatYouGet: [
       "One-page written scope",
       "Working MVP aimed at your next milestone",
       "Weekly demos",
       "Direct access to the builders",
     ],
-    timeline: "Typical MVP: 2–6 weeks when the brief is clear.",
+    timeline:
+      "It depends on scope. You get a clear scope and a defined end date, agreed on the first call, and a demo every week.",
   },
   "web-application-development": {
     forWho:
@@ -104,7 +106,8 @@ const audienceBySlug: Record<
       "Weekly progress demos",
       "Docs for handoff",
     ],
-    timeline: "2–6 weeks for a focused first release; larger apps scoped in phases.",
+    timeline:
+      "It depends on scope. A focused first release has a clear scope and a defined end date. Larger apps are scoped in phases, with a demo every week.",
   },
   "mobile-app-development": {
     forWho: "Founders and product teams shipping iOS/Android or cross-platform apps.",
@@ -114,7 +117,8 @@ const audienceBySlug: Record<
       "Weekly demos",
       "Direct developer communication",
     ],
-    timeline: "Depends on platform and features — scoped honestly before kickoff.",
+    timeline:
+      "It depends on platform and features. You get a clear scope and a defined end date before kickoff, and a demo every week.",
   },
   "ui-ux-design": {
     forWho: "Teams that need clear product UX before or alongside engineering.",
@@ -124,7 +128,8 @@ const audienceBySlug: Record<
       "Handoff-ready designs",
       "Close loop with engineering",
     ],
-    timeline: "Often 1–3 weeks for a focused product surface.",
+    timeline:
+      "It depends on scope. A focused product surface gets a clear scope and a defined end date before design starts.",
   },
   "cloud-devops": {
     forWho: "Teams that need reliable deploy pipelines, hosting, and ops basics.",
@@ -134,7 +139,8 @@ const audienceBySlug: Record<
       "Monitoring starting points",
       "Clear runbooks",
     ],
-    timeline: "Scoped per environment — often days to a few weeks.",
+    timeline:
+      "It depends on the environment. You get a clear scope and a defined end date before the work starts.",
   },
 };
 

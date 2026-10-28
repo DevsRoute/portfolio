@@ -24,15 +24,16 @@ const allIndustryDomains: IndustryDomain[] = [
     description:
       "Chatbots, automation and AI features added to new or existing products, using OpenAI and modern web stacks.",
     href: "/services/ai-solutions",
-    image: "/brand/previews/ai-messaging.webp",
-    imageAlt: "Conversational AI messaging product interface",
+    image: "/brand/industries/ai-powered-products.png",
+    imageAlt: "AI-powered product interfaces",
+    needsImageReplace: true,
     enabled: true,
   },
   {
     id: "saas",
     title: "SaaS & MVPs",
     description:
-      "From idea to launch-ready MVP in 2-6 weeks, then scale to multi-tenant SaaS as your users grow.",
+      "SaaS MVP development with a clear scope and a defined end date, then room to grow as users do.",
     href: "/services/custom-software-development",
     image: "/brand/previews/saas-compliance.webp",
     imageAlt: "SaaS product dashboard for compliance training",
