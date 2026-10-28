@@ -17,7 +17,7 @@ function ProjectCard({ project }: { project: Project }) {
   return (
     <Link
       href={`/work/${project.slug}`}
-      className="group flex h-full w-[min(88vw,22rem)] shrink-0 snap-start flex-col overflow-hidden rounded-2xl border border-ink-100 bg-white transition-shadow hover:shadow-[0_16px_40px_rgb(16_52_126/0.1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 sm:w-[calc((100%-1.25rem)/2)] lg:w-[calc((100%-2.75rem)/3)]"
+      className="group flex h-auto w-[min(88vw,22rem)] shrink-0 snap-start flex-col self-stretch overflow-hidden rounded-2xl border border-ink-100 bg-white transition-shadow hover:shadow-[0_16px_40px_rgb(16_52_126/0.1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 sm:w-[calc((100%-1.25rem)/2)] lg:w-[calc((100%-2.75rem)/3)]"
     >
       <div className="relative aspect-[16/10] overflow-hidden bg-ink-100">
         <Image
@@ -33,7 +33,7 @@ function ProjectCard({ project }: { project: Project }) {
         <span className="font-mono text-[11px] tracking-[0.12em] text-brand-600 uppercase">
           {project.category}
         </span>
-        <h3 className="font-heading text-xl font-semibold tracking-tight text-ink-700">
+        <h3 className="line-clamp-2 min-h-14 font-heading text-xl font-semibold leading-7 tracking-tight text-ink-700">
           {project.title}
         </h3>
         <p className="line-clamp-2 text-sm leading-6 text-ink-500">
@@ -142,7 +142,7 @@ export function ProjectsDelivered() {
           role="region"
           aria-label="Projects delivered"
           className={cn(
-            "flex gap-5 overflow-x-auto overscroll-x-contain scroll-smooth pb-1",
+            "flex items-stretch gap-5 overflow-x-auto overscroll-x-contain scroll-smooth pb-1",
             "snap-x snap-mandatory",
             "[scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden",
             "cursor-default outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2",

@@ -5,6 +5,25 @@ import {
 } from "@/config/site-facts";
 import { calendlyHref, siteConfig } from "@/lib/site-config";
 
+const processSteps = [
+  {
+    title: "Discover",
+    body: "We learn your goals and users, and agree on a clear scope.",
+  },
+  {
+    title: "Design",
+    body: "We map the screens and flows so you see the product before we build it.",
+  },
+  {
+    title: "Build",
+    body: "We build in small pieces with a demo every week.",
+  },
+  {
+    title: "Launch",
+    body: "We deploy, test with real users and support you after launch.",
+  },
+] as const;
+
 function ImpactRouteArt({ className }: { className?: string }) {
   return (
     <svg
@@ -104,6 +123,17 @@ export function TrustProof() {
             </span>
           </h2>
 
+          <ol className="flex flex-col gap-4">
+            {processSteps.map((step) => (
+              <li key={step.title}>
+                <p className="font-semibold text-white">{step.title}</p>
+                <p className="mt-1 text-sm leading-6 text-white/88">
+                  {step.body}
+                </p>
+              </li>
+            ))}
+          </ol>
+
           <Button
             href={calendlyHref("/")}
             size="lg"
@@ -118,7 +148,7 @@ export function TrustProof() {
             {items.map((stat) => (
               <div key={stat.id} className="flex flex-col gap-2.5">
                 <span className="font-heading text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-[3.5rem] lg:leading-none">
-                  {stat.value}
+                  {stat.value}{" "}
                 </span>
                 <span className="text-sm leading-6 text-white/88 sm:text-[0.95rem] sm:leading-7">
                   {stat.label}

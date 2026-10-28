@@ -44,7 +44,7 @@ const allIndustryDomains: IndustryDomain[] = [
     title: "Travel & Tourism",
     description:
       "Booking platforms and travel experiences that help guests discover, plan, and go.",
-    href: "/services/mobile-app-development",
+    href: "/services/web-application-development",
     image: "/brand/previews/travel-website.webp",
     imageAlt: "Travel website with destinations and a booking call to action",
     enabled: true,

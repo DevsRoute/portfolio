@@ -94,14 +94,14 @@ export function FaqSection() {
         <div className="flex flex-col gap-10 lg:flex-row lg:gap-16 xl:gap-20">
           <div className="w-full shrink-0 lg:max-w-[22rem] xl:max-w-[25rem]">
             <p className="font-mono text-xs tracking-[0.14em] text-[#1d81f2] uppercase sm:text-[0.8rem]">
-              09 — FAQ
+              FAQ
             </p>
             <h2 className="mt-4 font-heading text-3xl font-semibold tracking-tight text-ink-700 sm:text-4xl lg:text-[2.75rem] lg:leading-[1.08]">
               Questions, <span className="text-[#1d81f2]">answered.</span>
             </h2>
             <p className="mt-4 text-sm leading-7 text-ink-500 sm:text-base sm:leading-8">
-              Can&apos;t find what you need? Ask our AI Engine or talk to the
-              team.
+              Can&apos;t find what you need? Ask the DevsRoute AI Assistant or
+              talk to the team.
             </p>
             <Link
               href={siteConfig.cta.href}

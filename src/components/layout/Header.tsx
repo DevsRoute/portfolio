@@ -75,6 +75,18 @@ function useIsClient() {
   );
 }
 
+function scrollToServices(
+  event: { preventDefault: () => void },
+  pathname: string,
+) {
+  if (pathname !== "/") return;
+  const target = document.getElementById("services");
+  if (!target) return;
+  event.preventDefault();
+  const top = target.getBoundingClientRect().top + window.scrollY - 112;
+  window.scrollTo({ top, behavior: "smooth" });
+}
+
 function ServicesMenu({ solid }: { solid: boolean }) {
   const ready = useIsClient();
   const pathname = usePathname();
@@ -82,10 +94,14 @@ function ServicesMenu({ solid }: { solid: boolean }) {
 
   if (!ready) {
     return (
-      <span className={servicesTriggerClass(solid)}>
+      <Link
+        href="/#services"
+        className={servicesTriggerClass(solid)}
+        onClick={(event) => scrollToServices(event, pathname)}
+      >
         Services
         <ChevronDown className="size-4" />
-      </span>
+      </Link>
     );
   }
 
@@ -95,6 +111,13 @@ function ServicesMenu({ solid }: { solid: boolean }) {
         openOnHover
         delay={80}
         closeDelay={120}
+        nativeButton={false}
+        render={
+          <Link
+            href="/#services"
+            onClick={(event) => scrollToServices(event, pathname)}
+          />
+        }
         className={cn(
           "group",
           servicesTriggerClass(solid),
@@ -243,20 +266,32 @@ export function Header() {
           )}
         >
           <nav aria-label="Mobile" className="flex flex-col gap-1 py-4">
-            <button
-              type="button"
-              className="flex items-center justify-between rounded-[5px] px-3 py-3 text-left text-base font-medium text-foreground hover:bg-muted"
-              aria-expanded={mobileServicesOpen}
-              onClick={() => setMobileServicesOpen((open) => !open)}
-            >
-              Services
-              <ChevronDown
-                className={cn(
-                  "size-4 transition-transform",
-                  mobileServicesOpen && "rotate-180",
-                )}
-              />
-            </button>
+            <div className="flex items-center justify-between rounded-[5px] hover:bg-muted">
+              <Link
+                href="/#services"
+                className="flex-1 px-3 py-3 text-base font-medium text-foreground"
+                onClick={(event) => {
+                  setMenuOpen(false);
+                  scrollToServices(event, pathname);
+                }}
+              >
+                Services
+              </Link>
+              <button
+                type="button"
+                className="px-3 py-3 text-foreground"
+                aria-expanded={mobileServicesOpen}
+                aria-label="Show service pages"
+                onClick={() => setMobileServicesOpen((open) => !open)}
+              >
+                <ChevronDown
+                  className={cn(
+                    "size-4 transition-transform",
+                    mobileServicesOpen && "rotate-180",
+                  )}
+                />
+              </button>
+            </div>
             {mobileServicesOpen ? (
               <div className="mb-1 ml-2 flex flex-col border-l border-border pl-2">
                 {services.map((service) => (

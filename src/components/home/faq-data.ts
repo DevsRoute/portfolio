@@ -15,7 +15,7 @@ export const homeFaqs: HomeFaq[] = [
     id: "technical-cofounder",
     question: "Do I need a technical co-founder first?",
     answer:
-      "No. Many startups and B2B founders start with us before they hire. You get a written scope and a defined end date, and you talk to the people building the product.",
+      "A good fit if you need a working product before you hire a full team. You get a written scope and a defined end date, and you talk to the people building the product.",
   },
   {
     id: "what-is-included",

@@ -48,7 +48,7 @@ export const siteFacts = {
   },
 
   /** Scope and end date are agreed on the first call. */
-  mvpTimeline: "Clear scope",
+  mvpTimeline: "Scope",
 
   /** Safe claims — toggle individually */
   claims: {
@@ -179,7 +179,7 @@ export function getSafeImpactClaims(): { id: string; value: string; label: strin
     items.push({
       id: "mvp-timeline",
       value: siteFacts.mvpTimeline,
-      label: "and a defined end date",
+      label: "and a defined end date, agreed up front",
     });
   }
   if (siteFacts.claims.seniorDevelopersOnly) {
