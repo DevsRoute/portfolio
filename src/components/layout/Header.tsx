@@ -175,7 +175,7 @@ export function Header() {
           >
             <Image
               src="/brand/devsroute-logo-color-sm.png"
-              alt={siteConfig.name}
+              alt="DevsRoute logo"
               width={218}
               height={38}
               priority

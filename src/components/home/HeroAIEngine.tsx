@@ -46,8 +46,17 @@ function getAssistantReply(question: string) {
     return "We offer custom software, AI solutions, web apps, mobile apps, UI/UX design, and Cloud & DevOps. Tell me what you’re building and I’ll map the best path.";
   }
 
+  if (
+    q.includes("how long") ||
+    q.includes("week") ||
+    q.includes("timeline") ||
+    q.includes("how soon")
+  ) {
+    return "It depends on scope. The end date is agreed on the first call, and there is a demo every week.";
+  }
+
   if (q.includes("mvp") || q.includes("project") || q.includes("idea")) {
-    return "Yes — we help teams go from idea to a scoped MVP with clear scope, strong UX, and reliable engineering.";
+    return "Yes. We help startups and B2B founders build a SaaS MVP with a clear scope and a defined end date.";
   }
 
   if (q.includes("process") || q.includes("approach") || q.includes("experience")) {
@@ -62,7 +71,7 @@ function getAssistantReply(question: string) {
     return "We add practical AI where it creates value — assistants, automation, search, and smarter product features inside real software.";
   }
 
-  return "Great question. Ask about services, MVPs, timelines, or AI — or use Let’s talk to connect with the DevsRoute team.";
+  return "Great question. Ask about services, SaaS MVP development, or AI product development — or use Let’s talk to connect with the DevsRoute team.";
 }
 
 export function HeroAIEngine() {

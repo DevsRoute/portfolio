@@ -92,14 +92,14 @@ export function IndustryDomains() {
         <div className="relative mb-10 flex flex-col gap-6 sm:mb-12 lg:mb-12 lg:flex-row lg:items-center lg:justify-between lg:gap-8">
           <div className="max-w-xl shrink-0 lg:max-w-md">
             <h2 className="font-heading text-3xl font-semibold tracking-tight text-ink-700 sm:text-4xl lg:text-[2.75rem] lg:leading-[1.12]">
-              Industries We{" "}
-              <span className="text-brand-500">Build For</span>
+              Industries
+              <span className="text-brand-500"> we build for</span>
             </h2>
           </div>
 
           <p className="max-w-md text-sm leading-7 text-ink-500 sm:text-base sm:leading-8 lg:absolute lg:left-1/2 lg:max-w-[18rem] lg:-translate-x-1/2 lg:text-center">
-            From SaaS and AI products to travel, e-commerce and education, we
-            build software that fits how your business works.
+            SaaS, AI, travel, education, finance, and commerce. Software that
+            fits how the business works.
           </p>
 
           <div className="flex shrink-0 items-center gap-2">

@@ -72,7 +72,7 @@ export default function PrivacyPage() {
             >
               {siteFacts.email}
             </a>
-            . Address: {siteFacts.address}.
+            .
           </p>
           <p>
             See also our{" "}

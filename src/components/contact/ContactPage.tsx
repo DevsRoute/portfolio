@@ -2,7 +2,7 @@
 
 import { useId, useState, type FormEvent } from "react";
 import Link from "next/link";
-import { Clock3, Mail, MapPin, MessageSquare } from "lucide-react";
+import { Clock3, Mail, MessageSquare } from "lucide-react";
 
 import { AboutEyebrow } from "@/components/about/AboutSectionHeading";
 import { Button } from "@/components/ui/button";
@@ -38,9 +38,9 @@ const budgetOptions = [
 
 const timelineOptions = [
   "",
-  "ASAP (2–4 weeks)",
-  "1–2 months",
-  "3+ months",
+  "Ready to start",
+  "Flexible timing",
+  "Planning ahead",
   "Exploring",
 ];
 
@@ -169,10 +169,6 @@ export function ContactMain() {
                       ? ` · ${siteFacts.usTimeOverlap}`
                       : " · US-friendly overlap"}
                   </span>
-                </div>
-                <div className="inline-flex items-start gap-3 text-sm text-white/88 sm:text-base">
-                  <MapPin className="mt-0.5 size-5 shrink-0" strokeWidth={2} />
-                  <span>{siteFacts.address}</span>
                 </div>
               </div>
             </div>

@@ -47,11 +47,11 @@ export function ContactCta() {
           <div className="flex flex-col gap-10 lg:flex-row lg:items-stretch lg:gap-14 xl:gap-16">
             <div className="flex min-w-0 flex-1 flex-col gap-6 lg:gap-7">
               <h2 className="font-heading text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-[3.25rem] lg:leading-[1.05] xl:text-[3.5rem]">
-                Ready to build what&apos;s next?
+                Start with a call.
               </h2>
               <p className="max-w-md text-sm leading-7 text-white/88 sm:text-base sm:leading-8 lg:text-lg">
-                Tell us what you&apos;re working on and let&apos;s explore how we
-                can help.
+                Tell us what you want to build. We agree a clear scope and a
+                defined end date on the first call.
               </p>
 
               <div className="mt-2 flex flex-col gap-3.5 sm:mt-4">

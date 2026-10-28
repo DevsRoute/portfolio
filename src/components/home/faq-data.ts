@@ -6,39 +6,39 @@ export type HomeFaq = {
 
 export const homeFaqs: HomeFaq[] = [
   {
-    id: "mvp",
-    question: "Can you build an MVP?",
+    id: "how-long",
+    question: "How long does an MVP take?",
     answer:
-      "Yes. Our MVP Sprint takes you from idea to a launch-ready product — scope, design and build — so you can validate with real users quickly.",
+      "It depends on scope. The end date is agreed on the first call, and there is a demo every week.",
   },
   {
-    id: "process",
-    question: "How does your process work?",
+    id: "technical-cofounder",
+    question: "Do I need a technical co-founder first?",
     answer:
-      "We follow a clear path: discover, define, design, build, and improve. You stay involved at key decisions while we handle design, engineering, testing, and delivery.",
+      "No. Many startups and B2B founders start with us before they hire. You get a written scope and a defined end date, and you talk to the people building the product.",
+  },
+  {
+    id: "what-is-included",
+    question: "What does SaaS MVP development include?",
+    answer:
+      "A first version of the product your users can actually try: the core flows, a clear scope, and a defined end date. Extra ideas stay out of that first release.",
   },
   {
     id: "ai-existing",
-    question: "Do you build AI features into existing products?",
+    question: "Can you add AI to a product we already have?",
     answer:
-      "Absolutely. We add practical AI where it creates value — assistants, automation, search, and smarter workflows — integrated into the products you already run.",
+      "Yes. AI product development can be a chat assistant, automation, or search inside the product you already run. We agree the scope and the end date before build starts.",
   },
   {
-    id: "cost",
-    question: "How much does a project cost?",
+    id: "who-owns",
+    question: "Who owns the code?",
     answer:
-      "It depends on scope, timeline, and complexity. After a short discovery conversation, we share a clear estimate and recommended approach — no surprise pricing.",
+      "You do. When the work is complete and paid, you own the product and the code we write for you.",
   },
   {
-    id: "ip",
-    question: "Who owns the code and IP?",
+    id: "how-to-start",
+    question: "How do we start?",
     answer:
-      "You do. Once the project is complete and paid, you own the product, code, and intellectual property we create for your business.",
-  },
-  {
-    id: "support",
-    question: "Do you offer support after launch?",
-    answer:
-      "Yes. We can continue with maintenance, iteration, performance improvements, and new features so your product keeps improving after launch.",
+      "Book a call. We talk through the product, agree a clear scope and a defined end date, and then you see a demo every week.",
   },
 ];

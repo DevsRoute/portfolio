@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { CalendarDays, Mail, MapPin } from "lucide-react";
+import { CalendarDays, Mail } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { siteFacts } from "@/config/site-facts";
@@ -34,7 +34,7 @@ export function Footer() {
             <Link href="/" className="inline-flex w-fit">
               <Image
                 src="/brand/devsroute-logo-white-sm.png"
-                alt={siteConfig.name}
+                alt="DevsRoute logo"
                 width={200}
                 height={34}
                 unoptimized
@@ -43,8 +43,8 @@ export function Footer() {
               />
             </Link>
             <p className="max-w-xs text-sm leading-7 text-white/80">
-              {siteFacts.companyName} — a small remote studio for MVPs and AI
-              products. Based in {siteFacts.locationLabel}.
+              SaaS MVP development and AI product development for startups and
+              B2B founders. Clear scope and a defined end date.
             </p>
             <Button href={calendlyHref("/")} size="lg" className="w-fit" data-analytics="calendly">
               {siteConfig.cta.label}
@@ -103,10 +103,6 @@ export function Footer() {
                 <CalendarDays className="size-4 shrink-0 text-[#1d81f2]" />
                 {siteConfig.calendly.label}
               </a>
-              <p className={`inline-flex items-start gap-2.5 ${footerLinkClass}`}>
-                <MapPin className="mt-0.5 size-4 shrink-0 text-[#1d81f2]" />
-                <span>{siteFacts.address}</span>
-              </p>
             </div>
           </div>
         </div>

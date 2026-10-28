@@ -47,8 +47,17 @@ function getAssistantReply(question: string) {
     return "We build custom software, AI solutions, web apps, mobile apps, UI/UX design, and Cloud & DevOps. Tell me what you’re trying to launch and I’ll point you to the best fit.";
   }
 
+  if (
+    q.includes("how long") ||
+    q.includes("week") ||
+    q.includes("timeline") ||
+    q.includes("how soon")
+  ) {
+    return "It depends on scope. The end date is agreed on the first call, and there is a demo every week.";
+  }
+
   if (q.includes("mvp") || q.includes("startup") || q.includes("idea")) {
-    return "Yes — we help teams go from idea to a launch-ready MVP with clear scope, strong UX, and reliable engineering. Share your product idea and we can outline a practical first release.";
+    return "Yes. We help startups and B2B founders build a SaaS MVP with a clear scope and a defined end date.";
   }
 
   if (q.includes("process") || q.includes("approach") || q.includes("how")) {
@@ -60,10 +69,10 @@ function getAssistantReply(question: string) {
   }
 
   if (q.includes("price") || q.includes("cost") || q.includes("budget")) {
-    return "Pricing depends on scope, timeline, and complexity. Share a short brief and our team can recommend a package that fits — start with “Let’s talk” and we’ll take it from there.";
+    return "Pricing depends on scope and complexity. Share a short brief and our team can recommend an approach that fits — start with “Let’s talk” and we’ll take it from there.";
   }
 
-  return "Great question. DevsRoute helps modern businesses build software that ships — from MVP to production. Ask about a service, timeline, or your product idea, or open “Let’s talk” to connect with the team.";
+  return "Great question. DevsRoute helps startups and B2B founders with SaaS MVP development and AI product development. Ask about a service or your product idea, or open “Let’s talk” to connect with the team.";
 }
 
 function AiOrb({ className }: { className?: string }) {

@@ -20,7 +20,7 @@ export const featuredServices = [
     id: "custom-software",
     title: "Custom Software & MVPs",
     description:
-      "Scoped MVPs for funded founders in 2-6 weeks, then grow into the product your users need — with senior developers only.",
+      "SaaS MVP development with a clear scope and a defined end date, built by senior developers.",
     offerings: [
       "MVP & product builds",
       "Internal tools",

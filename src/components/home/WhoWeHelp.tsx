@@ -8,9 +8,9 @@ const audiences = [
     path: "MVP path",
     title: "Founders launching an MVP",
     description:
-      "Funded non-technical founders who need a scoped product shipped in weeks — not months of hiring.",
+      "Startups and B2B founders who need a SaaS MVP with a clear scope and a defined end date.",
     href: "/founders",
-    detail: "2–6 week scoped builds",
+    detail: "Clear scope and a defined end date",
   },
   {
     id: "saas-ai",
@@ -18,9 +18,9 @@ const audiences = [
     path: "AI path",
     title: "SaaS teams adding AI",
     description:
-      "Product teams that want chatbots, automation, or OpenAI features without pulling the core roadmap off track.",
+      "B2B teams that want chat, automation, or other AI features inside a product they already run.",
     href: "/ai-features",
-    detail: "Focused AI features",
+    detail: "AI product development",
   },
 ] as const;
 
@@ -42,15 +42,15 @@ export function WhoWeHelp() {
               Who we help
             </p>
             <h2 className="mt-4 font-heading text-3xl font-semibold tracking-tight text-ink-700 sm:text-4xl lg:text-[2.75rem] lg:leading-[1.12]">
-              Two clear paths.
+              Two paths.
               <span className="mt-1 block text-[#1d81f2] sm:mt-1.5">
-                One senior team.
+                One team.
               </span>
             </h2>
           </div>
           <p className="max-w-sm text-sm leading-7 text-ink-500 sm:text-base sm:leading-8 lg:pb-1">
-            Choose the lane that matches where you are — then talk directly to
-            the people who will build it.
+            A SaaS MVP, or AI added to a product you already have. You talk to
+            the people who build it.
           </p>
         </div>
 
