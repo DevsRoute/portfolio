@@ -25,7 +25,7 @@ const INTRO_MESSAGES: ChatMessage[] = [
     id: "welcome-1",
     role: "assistant",
     content:
-      "Welcome — I’m DevsRoute AI Engine. I can walk you through our services, approach, and how we ship products.",
+      "Welcome — I’m the DevsRoute AI Assistant. I can walk you through our services, approach, and how we ship products.",
   },
   {
     id: "welcome-2",
@@ -120,7 +120,7 @@ export function HeroAIEngine() {
 
   return (
     <aside
-      aria-label="AI Engine chat"
+      aria-label="DevsRoute AI Assistant"
       className="relative flex h-[min(24rem,calc(100svh-12rem))] w-full flex-col rounded-2xl bg-white p-3.5 shadow-[0_12px_36px_rgb(16_52_126/0.12)] sm:h-[min(26rem,calc(100svh-11rem))] sm:px-6 sm:py-5 lg:h-[min(28rem,calc(100svh-10rem))]"
     >
       <div className="mb-3 flex shrink-0 items-center gap-2.5">
@@ -129,9 +129,8 @@ export function HeroAIEngine() {
         </span>
         <div>
           <p className="text-sm font-semibold tracking-tight text-ink-700">
-            AI Engine
+            DevsRoute AI Assistant
           </p>
-          <p className="text-[11px] text-brand-600/80">DevsRoute assistant</p>
         </div>
       </div>
 
@@ -198,7 +197,7 @@ export function HeroAIEngine() {
             onChange={(event) => setInput(event.target.value)}
             placeholder="What do you want to know?"
             className="min-w-0 flex-1 bg-transparent py-2 text-sm text-ink-600 outline-none placeholder:text-ink-400"
-            aria-label="Ask AI Engine"
+            aria-label="Ask the DevsRoute AI Assistant"
           />
           <button
             type="submit"

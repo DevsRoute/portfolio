@@ -135,7 +135,7 @@ export function OurServices() {
   return (
     <section
       id="services"
-      className="relative overflow-hidden bg-brand-50 py-20 sm:py-24 lg:py-28"
+      className="relative scroll-mt-28 overflow-hidden bg-brand-50 py-20 sm:py-24 lg:py-28"
     >
       <div className="container-site relative">
         <div className="relative mb-10 flex flex-col gap-5 sm:mb-12 lg:mb-14 lg:min-h-14 lg:flex-row lg:items-center lg:justify-between">

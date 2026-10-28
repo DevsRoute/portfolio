@@ -10,7 +10,6 @@ const audiences = [
     description:
       "Startups and B2B founders who need a SaaS MVP with a clear scope and a defined end date.",
     href: "/founders",
-    detail: "Clear scope and a defined end date",
   },
   {
     id: "saas-ai",
@@ -20,7 +19,6 @@ const audiences = [
     description:
       "B2B teams that want chat, automation, or other AI features inside a product they already run.",
     href: "/ai-features",
-    detail: "AI product development",
   },
 ] as const;
 
@@ -42,7 +40,7 @@ export function WhoWeHelp() {
               Who we help
             </p>
             <h2 className="mt-4 font-heading text-3xl font-semibold tracking-tight text-ink-700 sm:text-4xl lg:text-[2.75rem] lg:leading-[1.12]">
-              Two paths.
+              Two paths.{" "}
               <span className="mt-1 block text-[#1d81f2] sm:mt-1.5">
                 One team.
               </span>
@@ -75,15 +73,9 @@ export function WhoWeHelp() {
                 <p className="mt-2 max-w-xl text-sm leading-7 text-ink-500 sm:text-[0.95rem] sm:leading-7">
                   {item.description}
                 </p>
-                <p className="mt-3 text-sm font-medium text-ink-600 sm:hidden">
-                  {item.detail}
-                </p>
               </div>
 
-              <div className="flex items-center justify-between gap-6 lg:flex-col lg:items-end lg:justify-center lg:gap-3">
-                <p className="hidden text-sm font-medium text-ink-500 sm:block lg:text-right">
-                  {item.detail}
-                </p>
+              <div className="flex items-center justify-end gap-6 lg:justify-center">
                 <span
                   aria-hidden
                   className="inline-flex size-11 items-center justify-center rounded-full border border-ink-200 bg-white text-ink-700 transition-all duration-300 group-hover:border-[#1d81f2] group-hover:bg-[#1d81f2] group-hover:text-white group-hover:shadow-[0_10px_28px_rgb(29_129_242/0.28)] group-focus-visible:border-[#1d81f2] group-focus-visible:bg-[#1d81f2] group-focus-visible:text-white"

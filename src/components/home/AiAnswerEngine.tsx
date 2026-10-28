@@ -33,7 +33,7 @@ const WELCOME_MESSAGE: ChatMessage = {
   id: "welcome",
   role: "assistant",
   content:
-    "Hi — I’m the DevsRoute AI assistant. Ask about services, MVPs, timelines, or how we can help turn your idea into a product.",
+    "Hi — I’m the DevsRoute AI Assistant. Ask about services, MVPs, timelines, or how we can help turn your idea into a product.",
 };
 
 function createId() {
@@ -278,14 +278,14 @@ export function AiAnswerEngine() {
       <div className="container-site relative">
         <div className="mx-auto max-w-3xl text-center">
           <p className="mb-4 text-xs font-semibold tracking-[0.18em] text-brand-600 uppercase sm:mb-5 sm:text-[0.8rem]">
-            DevsRoute AI
+            DevsRoute AI Assistant
           </p>
           <h2 className="font-heading text-[1.85rem] font-semibold tracking-tight text-ink-700 sm:text-4xl lg:text-[2.85rem] lg:leading-[1.12]">
             Need answers before you build?
           </h2>
           <p className="mt-3 font-heading text-[1.85rem] font-semibold tracking-tight text-ink-700 sm:mt-3.5 sm:text-4xl lg:text-[2.85rem] lg:leading-[1.12]">
-            Ask our{" "}
-            <span className="text-brand-500">AI assistant</span>
+            Ask the{" "}
+            <span className="text-brand-500">DevsRoute AI Assistant</span>
           </p>
           <p className="mx-auto mt-4 max-w-xl text-sm leading-6 text-ink-500 sm:mt-5 sm:text-base sm:leading-7">
             Get quick guidance on services, MVPs, timelines, and how DevsRoute
@@ -294,7 +294,7 @@ export function AiAnswerEngine() {
 
           <div className="mx-auto mt-8 max-w-2xl sm:mt-10">
             <label className="sr-only" htmlFor="ai-question">
-              Ask the AI assistant
+              Ask the DevsRoute AI Assistant
             </label>
             <div
               role="button"
@@ -325,7 +325,7 @@ export function AiAnswerEngine() {
                   openChat();
                 }}
                 className="mr-0.5 inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-brand-500 text-white transition-colors hover:bg-brand-600 sm:size-11"
-                aria-label="Open AI chat"
+                aria-label="Open DevsRoute AI Assistant"
               >
                 <Search className="size-5" strokeWidth={2.25} />
               </button>
@@ -349,7 +349,7 @@ export function AiAnswerEngine() {
               <AiOrb />
               <div className="min-w-0">
                 <DrawerTitle className="text-base font-semibold sm:text-lg">
-                  DevsRoute AI assistant
+                  DevsRoute AI Assistant
                 </DrawerTitle>
                 <DrawerDescription className="mt-0.5 text-left text-xs sm:text-sm">
                   Quick guidance on services, MVPs, and delivery.

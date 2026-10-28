@@ -93,7 +93,8 @@ export function IndustryDomains() {
           <div className="max-w-xl shrink-0 lg:max-w-md">
             <h2 className="font-heading text-3xl font-semibold tracking-tight text-ink-700 sm:text-4xl lg:text-[2.75rem] lg:leading-[1.12]">
               Industries
-              <span className="text-brand-500"> we build for</span>
+              <span className="text-brand-500"> we</span>
+              <span className="block text-brand-500">build for</span>
             </h2>
           </div>
 

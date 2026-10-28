@@ -62,7 +62,9 @@ export function Footer() {
                   href={service.href}
                   className={footerLinkClass}
                 >
-                  {service.label}
+                  {service.label === "Mobile Apps"
+                    ? "Mobile App Development"
+                    : service.label}
                 </Link>
               ))}
             </div>
