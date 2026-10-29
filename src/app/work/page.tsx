@@ -39,7 +39,7 @@ export default function WorkPage() {
             <span className="text-brand-500">ship and shape.</span>
           </h1>
           <p className="mt-5 text-base leading-7 text-ink-500 sm:text-lg sm:leading-8">
-            From AI-powered SaaS to learning platforms and marketing sites —
+            From AI-native SaaS to learning platforms and marketing sites —
             here&apos;s a look at recent work. We keep the roles honest: what we
             built, the stack involved, and how it fits your kind of project.
           </p>

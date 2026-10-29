@@ -13,7 +13,7 @@ import { cn } from "@/lib/utils";
 
 function IndustryCard({ domain }: { domain: IndustryDomain }) {
   return (
-    <article className="group relative flex h-[28rem] w-[min(85vw,20rem)] shrink-0 snap-start flex-col overflow-hidden rounded-2xl sm:h-[30rem] sm:w-[calc((100%-1.25rem)/2)] lg:w-[calc((100%-2.75rem)/3)] xl:w-[calc((100%-4.5rem)/4)]">
+    <article className="group relative flex h-[28rem] w-[min(85vw,20rem)] shrink-0 snap-start flex-col overflow-hidden rounded-[10px] sm:h-[30rem] sm:w-[calc((100%-1.25rem)/2)] lg:w-[calc((100%-2.75rem)/3)] xl:w-[calc((100%-4.5rem)/4)]">
       <Image
         src={domain.image}
         alt={domain.imageAlt}
@@ -27,19 +27,19 @@ function IndustryCard({ domain }: { domain: IndustryDomain }) {
         className="absolute inset-0 bg-gradient-to-b from-ink-950/80 via-ink-950/55 to-ink-950/72"
       />
 
-      <div className="relative z-10 flex h-full flex-col p-5 sm:p-6">
+      <div className="relative z-10 flex h-full flex-col p-4">
         <h3 className="font-heading text-2xl font-semibold tracking-tight text-white">
           {domain.title}
         </h3>
-        <p className="mt-2 line-clamp-4 max-w-[17rem] flex-1 text-sm leading-6 text-white/90 sm:text-[0.95rem] sm:leading-7">
+        <p className="mt-1.5 line-clamp-4 max-w-[17rem] text-[0.8125rem] leading-5 text-white/90">
           {domain.description}
         </p>
         <Link
           href={domain.href}
-          className="mt-auto inline-flex w-fit items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-ink-700 transition-colors hover:bg-brand-50 hover:text-brand-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-ink-900"
+          className="mt-3 inline-flex w-fit items-center gap-1 rounded-full bg-white px-2.5 py-1 text-xs font-semibold text-ink-700 transition-colors hover:bg-brand-50 hover:text-brand-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-ink-900"
         >
           Learn more
-          <ArrowUpRight className="size-4" aria-hidden />
+          <ArrowUpRight className="size-3" aria-hidden />
         </Link>
       </div>
     </article>
@@ -92,15 +92,14 @@ export function IndustryDomains() {
         <div className="relative mb-10 flex flex-col gap-6 sm:mb-12 lg:mb-12 lg:flex-row lg:items-center lg:justify-between lg:gap-8">
           <div className="max-w-xl shrink-0 lg:max-w-md">
             <h2 className="font-heading text-3xl font-semibold tracking-tight text-ink-700 sm:text-4xl lg:text-[2.75rem] lg:leading-[1.12]">
-              Industries
-              <span className="text-brand-500"> we</span>
-              <span className="block text-brand-500">build for</span>
+              Engineers across
+              <span className="block text-brand-500">industries</span>
             </h2>
           </div>
 
           <p className="max-w-md text-sm leading-7 text-ink-500 sm:text-base sm:leading-8 lg:absolute lg:left-1/2 lg:max-w-[18rem] lg:-translate-x-1/2 lg:text-center">
-            SaaS, AI, travel, education, finance, and commerce. Software that
-            fits how the business works.
+            SaaS, AI, healthcare, travel, commerce, and on-demand.
+            Software that fits how the business works.
           </p>
 
           <div className="flex shrink-0 items-center gap-2">
@@ -139,7 +138,7 @@ export function IndustryDomains() {
           role="region"
           aria-label="Industry domains"
           className={cn(
-            "flex gap-5 overflow-x-auto overscroll-x-contain scroll-smooth pb-1",
+            "flex gap-3 overflow-x-auto overscroll-x-contain scroll-smooth pb-1",
             "snap-x snap-mandatory",
             "[scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden",
             "cursor-default outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2",
