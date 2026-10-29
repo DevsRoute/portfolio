@@ -238,7 +238,7 @@ export const serviceVisualConfig: Record<string, ServiceVisualConfig> = {
     heroTone: "tint",
     intro: {
       image: "/brand/industries/ai-powered-products.png",
-      imageAlt: "AI-powered product dashboard with chatbots and automation features",
+      imageAlt: "AI-native product dashboard with chatbots and automation features",
       reverse: true,
     },
     visualBreak: {

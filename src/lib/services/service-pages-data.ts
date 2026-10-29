@@ -588,7 +588,7 @@ export const servicePages: ServicePageData[] = [
     meta: {
       title: "AI Development & Automation Services | DevsRoute",
       description:
-        "Build practical AI solutions that solve real business problems. From AI-powered applications to workflow automation, DevsRoute helps businesses use AI effectively.",
+        "Build practical AI solutions that solve real business problems. From AI-native applications to workflow automation, DevsRoute helps businesses use AI effectively.",
     },
     hero: {
       eyebrow: "AI Solutions",
@@ -599,7 +599,7 @@ export const servicePages: ServicePageData[] = [
       cta: { label: "Explore AI Solutions", href: "/contact" },
       image: "/brand/services/ai-solutions-v2.jpg",
       imageAlt:
-        "AI-powered business application dashboard with intelligent workflow features",
+        "AI-native business application dashboard with intelligent workflow features",
       imagePosition: "left",
     },
     intro: {
@@ -614,7 +614,7 @@ export const servicePages: ServicePageData[] = [
       title: "AI Solutions",
       titleAccent: "We Build.",
       items: [
-        "AI-Powered Applications",
+        "AI-Native Applications",
         "AI Assistants",
         "Document Processing",
         "Intelligent Search",

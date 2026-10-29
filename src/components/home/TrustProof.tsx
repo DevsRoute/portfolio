@@ -123,13 +123,14 @@ export function TrustProof() {
             </span>
           </h2>
 
-          <ol className="flex flex-col gap-4">
+          <ol className="flex flex-col gap-3">
             {processSteps.map((step) => (
-              <li key={step.title}>
+              <li
+                key={step.title}
+                className="grid grid-cols-[6.5rem_1fr] items-baseline gap-x-4 sm:grid-cols-[7.5rem_1fr]"
+              >
                 <p className="font-semibold text-white">{step.title}</p>
-                <p className="mt-1 text-sm leading-6 text-white/88">
-                  {step.body}
-                </p>
+                <p className="text-sm leading-6 text-white/88">{step.body}</p>
               </li>
             ))}
           </ol>

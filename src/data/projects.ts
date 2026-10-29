@@ -51,7 +51,7 @@ export const projects: Project[] = [
     category: "AI / SaaS",
     roleSummary: "Front-end / web development",
     summary:
-      "AI-powered messaging product with conversation views, assistants, and admin surfaces.",
+      "AI-native messaging product with conversation views, assistants, and admin surfaces.",
     description:
       "A messaging product with conversational AI features. Our work focused on the front-end and web application layer.",
     whatWeBuilt:
