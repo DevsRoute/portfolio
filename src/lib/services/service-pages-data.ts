@@ -321,7 +321,7 @@ export const servicePages: ServicePageData[] = [
       headingAccent: "in the Browser.",
       paragraphs: [
         "Web applications power everything from SaaS platforms and customer portals to internal dashboards and marketplaces. When built well, they give users fast access from any device without the friction of installs or updates.",
-        "We focus on web apps that feel responsive, are easy to use, and are engineered to handle growth — from early product launches to platforms serving thousands of users.",
+        "We focus on web apps that feel responsive, are easy to use, and are engineered to handle growth — from a first release to a product your team can keep building.",
       ],
     },
     whatWeBuild: {
@@ -573,7 +573,7 @@ export const servicePages: ServicePageData[] = [
       "cloud-devops",
     ],
     cta: {
-      eyebrow: "Mobile Product",
+      eyebrow: "Mobile apps",
       title: "Ready to Launch a",
       titleAccent: "Mobile App?",
       description:
@@ -596,7 +596,7 @@ export const servicePages: ServicePageData[] = [
       headingAccent: "Real Business Problems.",
       supporting:
         "We help businesses turn AI from an idea into useful products, features, and automated workflows that save time and improve how teams work.",
-      cta: { label: "Explore AI Solutions", href: "/contact" },
+      cta: { label: "Talk about an AI feature", href: "/contact" },
       image: "/brand/services/ai-solutions-v2.jpg",
       imageAlt:
         "AI-native business application dashboard with intelligent workflow features",
@@ -719,12 +719,12 @@ export const servicePages: ServicePageData[] = [
       "cloud-devops",
     ],
     cta: {
-      eyebrow: "Explore AI",
+      eyebrow: "AI products",
       title: "Want to Put AI to",
       titleAccent: "Work in Your Product?",
       description:
         "Tell us where your team spends time or where users need smarter experiences. We will help identify practical next steps.",
-      buttonLabel: "Explore AI Solutions",
+      buttonLabel: "Start an AI project",
       buttonHref: "/contact",
     },
   },

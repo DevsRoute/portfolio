@@ -2,7 +2,7 @@
 
 import { useId, useState, type FormEvent } from "react";
 import Link from "next/link";
-import { ArrowRight, CalendarDays, Mail, Minus, Plus } from "lucide-react";
+import { ArrowRight, Mail, Minus, Plus } from "lucide-react";
 
 import { ServiceContainer, ServiceSection } from "@/components/services/ServiceLayout";
 import { Button } from "@/components/ui/button";
@@ -108,15 +108,6 @@ export function ServiceFAQ({ service }: { service: ServicePageData }) {
               Still deciding if this service fits? Ask us anything about scope,
               timeline, or how we work.
             </p>
-            <Link
-              href={siteConfig.cta.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-ink-700 transition-colors hover:text-[#1d81f2]"
-            >
-              {siteConfig.cta.label}
-              <ArrowRight className="size-4" />
-            </Link>
           </div>
 
           <div className="flex min-w-0 flex-1 flex-col gap-3">
@@ -267,15 +258,6 @@ export function ServiceCTA({ service }: { service: ServicePageData }) {
                 >
                   <Mail className="size-5 shrink-0" strokeWidth={2} />
                   {siteConfig.email}
-                </a>
-                <a
-                  href={siteConfig.calendly.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex w-fit items-center gap-3 text-sm font-medium text-white transition-opacity hover:opacity-90 sm:text-base"
-                >
-                  <CalendarDays className="size-5 shrink-0" strokeWidth={2} />
-                  {siteConfig.calendly.label}
                 </a>
               </div>
 

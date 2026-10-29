@@ -38,8 +38,8 @@ export const serviceVisualConfig: Record<string, ServiceVisualConfig> = {
     visualType: "custom-software",
     heroTone: "tint",
     intro: {
-      image: "/brand/projects/flowdesk.jpg",
-      imageAlt: "Custom business management dashboard interface",
+      image: "/brand/services/custom-software-v2.jpg",
+      imageAlt: "Custom software workspace for a business product",
     },
     visualBreak: {
       image: "/brand/projects/fleetcore.jpg",
@@ -104,8 +104,8 @@ export const serviceVisualConfig: Record<string, ServiceVisualConfig> = {
     visualType: "web-applications",
     heroTone: "tint",
     intro: {
-      image: "/brand/projects/ai-compliance-training-platform.png",
-      imageAlt: "SaaS web application dashboard with courses and product navigation",
+      image: "/brand/projects/conversational-ai-messaging-platform.png",
+      imageAlt: "Web application with conversations, assistants, and admin views",
       reverse: true,
     },
     visualBreak: {
@@ -171,8 +171,8 @@ export const serviceVisualConfig: Record<string, ServiceVisualConfig> = {
     visualType: "mobile-apps",
     heroTone: "tint",
     intro: {
-      image: "/brand/industries/on-demand.jpg",
-      imageAlt: "On-demand mobile application experience",
+      image: "/brand/industries/travel-tourism.jpg",
+      imageAlt: "Travel app on a phone beside a passport and boarding pass",
     },
     visualBreak: {
       image: "/brand/projects/caresync.jpg",
@@ -256,20 +256,20 @@ export const serviceVisualConfig: Record<string, ServiceVisualConfig> = {
       {
         title: "Intelligent Search",
         description: "Search across documents, data, and product content.",
-        image: "/brand/projects/ai-compliance-training-platform.png",
-        imageAlt: "AI training platform with searchable courses and content",
+        image: "/brand/projects/learning-platform.png",
+        imageAlt: "Learning platform with searchable courses and content",
       },
       {
         title: "Workflow Automation",
         description: "Automated routing, classification, and repetitive task handling.",
-        image: "/brand/projects/identity-verification-platform.png",
-        imageAlt: "Identity verification workflows and status automation",
+        image: "/brand/projects/flowdesk.jpg",
+        imageAlt: "Operations dashboard for routing and workflow automation",
       },
       {
         title: "Document Processing",
         description: "Extract, summarize, and organize business documents at scale.",
-        image: "/brand/industries/ai-powered-products.png",
-        imageAlt: "AI document and content processing product interface",
+        image: "/brand/projects/ai-compliance-training-platform.png",
+        imageAlt: "Product interface for organizing courses, documents, and content",
       },
     ],
     industryBlocks: [
@@ -335,8 +335,8 @@ export const serviceVisualConfig: Record<string, ServiceVisualConfig> = {
       {
         title: "Design Systems",
         description: "Reusable components and patterns for scalable product teams.",
-        image: "/brand/services/ui-ux-design-v2.jpg",
-        imageAlt: "Design system components preview",
+        image: "/brand/projects/havenhome.jpg",
+        imageAlt: "Product screens composed from a shared design system",
       },
     ],
     industryBlocks: [
@@ -384,8 +384,8 @@ export const serviceVisualConfig: Record<string, ServiceVisualConfig> = {
       {
         title: "Cloud Infrastructure",
         description: "Scalable environments designed for production workloads.",
-        image: "/brand/services/cloud-devops-v2.jpg",
-        imageAlt: "Cloud infrastructure visual preview",
+        image: "/brand/industries/logistics-shipping.jpg",
+        imageAlt: "Operations environment for a cloud-hosted product",
       },
       {
         title: "CI/CD Pipelines",
