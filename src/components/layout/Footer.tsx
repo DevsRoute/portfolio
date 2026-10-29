@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { CalendarDays, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { siteFacts } from "@/config/site-facts";
@@ -96,14 +96,22 @@ export function Footer() {
                 {siteConfig.email}
               </a>
               <a
-                href={calendlyHref("/")}
+                href={siteFacts.social.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`inline-flex items-center gap-2.5 ${footerLinkClass}`}
-                data-analytics="calendly"
               >
-                <CalendarDays className="size-4 shrink-0 text-[#1d81f2]" />
-                {siteConfig.calendly.label}
+                <svg
+                  viewBox="0 0 24 24"
+                  aria-hidden
+                  className="size-4 shrink-0 text-[#1d81f2]"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.22 8.5h4.56V24H.22V8.5zM8.34 8.5h4.37v2.12h.06c.61-1.16 2.1-2.38 4.32-2.38 4.62 0 5.47 3.04 5.47 7V24h-4.56v-6.9c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.65 1.8-2.65 3.65V24H8.34V8.5z"
+                  />
+                </svg>
+                LinkedIn
               </a>
             </div>
           </div>

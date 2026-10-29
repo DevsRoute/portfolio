@@ -45,12 +45,12 @@ export function CustomSoftwareMockup({ className }: { className?: string }) {
             <div className="size-6 rounded-full bg-brand-100" />
           </div>
           <div className="grid grid-cols-3 gap-2 sm:gap-3">
-            {["Revenue", "Active Users", "Tasks"].map((label) => (
+            {["Pipeline", "Accounts", "Tasks"].map((label) => (
               <div key={label} className="rounded-lg bg-white p-2.5 sm:p-3">
                 <p className="text-[0.55rem] text-ink-400 sm:text-[0.6rem]">{label}</p>
-                <p className="mt-1 font-heading text-sm font-semibold text-ink-700 sm:text-base">
-                  {label === "Revenue" ? "$84.2k" : label === "Active Users" ? "1,248" : "326"}
-                </p>
+                <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-ink-100">
+                  <div className="h-full w-2/3 rounded-full bg-brand-400" />
+                </div>
               </div>
             ))}
           </div>
@@ -230,7 +230,7 @@ export function AiSolutionsMockup({ className }: { className?: string }) {
               Summarize open support tickets
             </div>
             <div className="max-w-[90%] rounded-2xl rounded-bl-md bg-ink-50 px-3 py-2 text-[0.6rem] text-ink-600">
-              42 tickets resolved. Top issue: onboarding setup. 3 accounts need follow-up.
+              Open tickets grouped by topic. A few accounts still need a reply.
             </div>
           </div>
           <div className="mt-4 rounded-lg bg-brand-50 p-3">
@@ -250,11 +250,11 @@ export function AiSolutionsMockup({ className }: { className?: string }) {
         <div className="bg-ink-50/50 p-4">
           <div className="h-2 w-20 rounded bg-ink-200" />
           <div className="mt-4 space-y-2">
-            {["Insights", "Accuracy", "Time saved"].map((label, i) => (
+            {["Queued", "In review", "Ready"].map((label) => (
               <div key={label} className="rounded-lg bg-white p-2.5">
-                <p className="text-[0.55rem] text-ink-400">{label}</p>
+                <p className="text-[0.55rem] text-ink-400">Status</p>
                 <p className="font-heading text-sm font-semibold text-ink-700">
-                  {["+18%", "94%", "12h/wk"][i]}
+                  {label}
                 </p>
               </div>
             ))}
@@ -292,20 +292,6 @@ export function UiUxDesignMockup({ className }: { className?: string }) {
             </div>
           </div>
         </MockupShell>
-      </div>
-      <div className="absolute bottom-0 left-[18%] w-[40%]">
-        <div className="rounded-xl border border-ink-200 bg-white px-3 py-2 shadow-lg">
-          <div className="flex gap-2">
-            {["Button", "Card", "Input"].map((c) => (
-              <span
-                key={c}
-                className="rounded bg-brand-50 px-2 py-1 text-[0.55rem] font-medium text-brand-700"
-              >
-                {c}
-              </span>
-            ))}
-          </div>
-        </div>
       </div>
     </div>
   );
@@ -346,8 +332,8 @@ export function CloudDevopsMockup({ className }: { className?: string }) {
           </div>
           <div className="mt-4 rounded-lg bg-white p-3">
             <div className="flex items-center justify-between text-[0.55rem] text-ink-500">
-              <span>Uptime</span>
-              <span className="font-semibold text-brand-600">99.9%</span>
+              <span>Deploy</span>
+              <span className="font-semibold text-brand-600">Passing</span>
             </div>
             <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-ink-100">
               <div className="h-full w-[92%] rounded-full bg-brand-500" />
