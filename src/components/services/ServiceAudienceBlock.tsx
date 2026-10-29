@@ -1,7 +1,6 @@
 import { ServiceContainer, ServiceSection } from "@/components/services/ServiceLayout";
 import { Button } from "@/components/ui/button";
-import { siteFacts } from "@/config/site-facts";
-import { calendlyHref, siteConfig } from "@/lib/site-config";
+import { calendlyHref } from "@/lib/site-config";
 
 /**
  * Shared audience-facing block for every service page.
@@ -30,14 +29,6 @@ export function ServiceAudienceBlock({
               Scope
             </p>
             <p className="mt-3 text-base leading-8 text-ink-600">{timeline}</p>
-            {!siteFacts.certifications.hipaa &&
-            !siteFacts.certifications.soc2 &&
-            !siteFacts.certifications.pci ? (
-              <p className="mt-4 text-sm text-ink-400">
-                We don&apos;t claim HIPAA, SOC 2, or PCI certifications unless
-                explicitly agreed for an engagement.
-              </p>
-            ) : null}
           </div>
           <div>
             <p className="font-mono text-xs tracking-[0.14em] text-brand-600 uppercase">
@@ -54,11 +45,8 @@ export function ServiceAudienceBlock({
                 </li>
               ))}
             </ul>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Button href={calendlyHref(`/services/${slug}`)} size="lg">
-                {siteConfig.cta.label}
-              </Button>
-              <Button href="/contact" size="lg" variant="outline" arrow={false}>
+            <div className="mt-8">
+              <Button href={calendlyHref(`/services/${slug}`)} size="lg" variant="outline" arrow={false}>
                 Get a free one-page scope
               </Button>
             </div>

@@ -37,7 +37,7 @@ export type Founder = {
 
 export const siteFacts = {
   companyName: "DevsRoute",
-  email: "hello@devsroute.com",
+  email: "contact@devsroute.com",
   address: "",
   locationLabel: "Remote",
 
@@ -122,7 +122,7 @@ export const siteFacts = {
   },
 
   social: {
-    linkedin: TODO_CONFIRM as string | TodoConfirm,
+    linkedin: "https://www.linkedin.com/company/devsroute/",
     upwork: TODO_CONFIRM as string | TodoConfirm,
     clutch: TODO_CONFIRM as string | TodoConfirm,
   },
