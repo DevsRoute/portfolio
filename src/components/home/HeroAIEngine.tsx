@@ -4,14 +4,8 @@ import { useEffect, useRef, useState, type FormEvent } from "react";
 import { ArrowRight, Sparkles } from "lucide-react";
 
 import { cn } from "@/lib/utils";
-
-type ChatRole = "user" | "assistant";
-
-type ChatMessage = {
-  id: string;
-  role: ChatRole;
-  content: string;
-};
+import { useChatContext } from "@/components/chat/ChatContext";
+import { renderMarkdown } from "@/components/chat/renderMarkdown";
 
 const SUGGESTIONS = [
   "What services do you offer?",
@@ -20,64 +14,9 @@ const SUGGESTIONS = [
   "Do you build AI features?",
 ] as const;
 
-const INTRO_MESSAGES: ChatMessage[] = [
-  {
-    id: "welcome-1",
-    role: "assistant",
-    content:
-      "Welcome — I’m the DevsRoute AI Assistant. I can walk you through our services, approach, and how we ship products.",
-  },
-  {
-    id: "welcome-2",
-    role: "assistant",
-    content:
-      "DevsRoute · Software development agency focused on custom software, AI solutions, and digital products for startups.",
-  },
-];
-
-function createId() {
-  return `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
-}
-
-function getAssistantReply(question: string) {
-  const q = question.toLowerCase();
-
-  if (q.includes("service") || q.includes("offer") || q.includes("skill")) {
-    return "We offer custom software, AI solutions, web apps, mobile apps, UI/UX design, and Cloud & DevOps. Tell me what you’re building and I’ll map the best path.";
-  }
-
-  if (
-    q.includes("how long") ||
-    q.includes("week") ||
-    q.includes("timeline") ||
-    q.includes("how soon")
-  ) {
-    return "It depends on scope. The end date is agreed on the first call, and there is a demo every week.";
-  }
-
-  if (q.includes("mvp") || q.includes("project") || q.includes("idea")) {
-    return "Yes. We help startups and B2B founders build a SaaS MVP with a clear scope and a defined end date.";
-  }
-
-  if (q.includes("process") || q.includes("approach") || q.includes("experience")) {
-    return "Our process is discovery → design → build → launch → iterate. We ship in focused milestones and stay close to your business goals.";
-  }
-
-  if (q.includes("contact") || q.includes("talk") || q.includes("price")) {
-    return "For a detailed proposal, use Let’s talk on the site. Share a short brief and our team will follow up with next steps.";
-  }
-
-  if (q.includes("ai")) {
-    return "We add practical AI where it creates value — assistants, automation, search, and smarter product features inside real software.";
-  }
-
-  return "Great question. Ask about services, SaaS MVP development, or AI product development — or use Let’s talk to connect with the DevsRoute team.";
-}
-
 export function HeroAIEngine() {
-  const [messages, setMessages] = useState<ChatMessage[]>(INTRO_MESSAGES);
+  const { messages, loading: isTyping, send } = useChatContext();
   const [input, setInput] = useState("");
-  const [isTyping, setIsTyping] = useState(false);
   const listRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -88,27 +27,8 @@ export function HeroAIEngine() {
   }, [messages, isTyping]);
 
   async function sendMessage(raw: string) {
-    const content = raw.trim();
-    if (!content || isTyping) return;
-
-    setMessages((prev) => [
-      ...prev,
-      { id: createId(), role: "user", content },
-    ]);
+    await send(raw);
     setInput("");
-    setIsTyping(true);
-
-    await new Promise((resolve) => setTimeout(resolve, 650 + Math.random() * 450));
-
-    setMessages((prev) => [
-      ...prev,
-      {
-        id: createId(),
-        role: "assistant",
-        content: getAssistantReply(content),
-      },
-    ]);
-    setIsTyping(false);
   }
 
   function handleSubmit(event: FormEvent) {
@@ -116,7 +36,7 @@ export function HeroAIEngine() {
     void sendMessage(input);
   }
 
-  const showSuggestions = messages.length <= INTRO_MESSAGES.length && !isTyping;
+  const showSuggestions = messages.length <= 1 && !isTyping;
 
   return (
     <aside
@@ -138,11 +58,11 @@ export function HeroAIEngine() {
         ref={listRef}
         className="scrollbar-site min-h-0 flex-1 space-y-2.5 overflow-y-auto overscroll-contain pr-1"
       >
-        {messages.map((message) => {
+        {messages.map((message, i) => {
           const isUser = message.role === "user";
           return (
             <div
-              key={message.id}
+              key={i}
               className={cn("flex", isUser ? "justify-end" : "justify-start")}
             >
               <div
@@ -153,7 +73,7 @@ export function HeroAIEngine() {
                     : "rounded-bl-md border-[0.5px] border-brand-500/35 bg-white text-ink-600",
                 )}
               >
-                {message.content}
+                {message.role === "assistant" ? renderMarkdown(message.content) : message.content}
               </div>
             </div>
           );

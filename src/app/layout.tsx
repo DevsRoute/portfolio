@@ -4,6 +4,8 @@ import "./globals.css";
 import { Analytics } from "@/components/layout/Analytics";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { ChatWidget } from "@/components/chat/ChatWidget";
+import { ChatProvider } from "@/components/chat/ChatContext";
 import { siteConfig } from "@/lib/site-config";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -99,9 +101,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         />
       </head>
       <body className="flex min-h-full flex-col" suppressHydrationWarning>
-        <Header />
-        {children}
-        <Footer />
+        <ChatProvider>
+          <Header />
+          {children}
+          <Footer />
+          <ChatWidget />
+        </ChatProvider>
         <Analytics />
       </body>
     </html>
