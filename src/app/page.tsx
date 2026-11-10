@@ -9,11 +9,11 @@ import { IndustryDomains } from "@/components/home/IndustryDomains";
 import { OurServices } from "@/components/home/OurServices";
 import { ProjectsDelivered } from "@/components/home/ProjectsDelivered";
 import { TrustProof } from "@/components/home/TrustProof";
-import { WhoWeHelp } from "@/components/home/WhoWeHelp";
 import {
   getOrganizationSameAs,
   siteFacts,
 } from "@/config/site-facts";
+import { jsonLdScript } from "@/lib/json-ld";
 import { services, siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
@@ -85,7 +85,7 @@ function HomeJsonLd() {
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+      dangerouslySetInnerHTML={{ __html: jsonLdScript(data) }}
     />
   );
 }
@@ -95,7 +95,6 @@ export default function Home() {
     <main className="flex-1">
       <HomeJsonLd />
       <Hero />
-      {/* <WhoWeHelp /> */}
       <IndustryDomains />
       <OurServices />
       <TrustProof />

@@ -1,3 +1,4 @@
+import { jsonLdScript } from "@/lib/json-ld";
 import type { ServicePageData } from "@/lib/services/service-pages-data";
 import { siteConfig } from "@/lib/site-config";
 
@@ -54,15 +55,15 @@ export function ServiceSchema({ service }: { service: ServicePageData }) {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+        dangerouslySetInnerHTML={{ __html: jsonLdScript(breadcrumb) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+        dangerouslySetInnerHTML={{ __html: jsonLdScript(serviceSchema) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{ __html: jsonLdScript(faqSchema) }}
       />
     </>
   );

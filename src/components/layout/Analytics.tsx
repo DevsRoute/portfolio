@@ -6,7 +6,12 @@ import { useSyncExternalStore } from "react";
 import { Button } from "@/components/ui/button";
 
 const plausibleDomain = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN;
-const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+const gaId = safeMeasurementId(process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID);
+
+function safeMeasurementId(id: string | undefined) {
+  if (!id) return undefined;
+  return /^(G|AW|GT|UA)-[A-Z0-9-]+$/i.test(id) ? id : undefined;
+}
 const CONSENT_KEY = "dr-analytics-consent";
 
 let utmPersisted = false;
