@@ -9,20 +9,18 @@ import {
   ApproachTechnology,
   ApproachTimeline,
 } from "@/components/approach/ApproachSections";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: {
-    absolute:
-      "Our Approach | Software Product Development Process | DevsRoute",
-  },
-  description:
-    "See how DevsRoute takes digital products from discovery and design through development, launch, and continuous improvement.",
-  openGraph: {
-    title: "Our Approach | Software Product Development Process | DevsRoute",
-    description:
-      "See how DevsRoute takes digital products from discovery and design through development, launch, and continuous improvement.",
-  },
-};
+const title = "Our Approach | Software Product Development Process | DevsRoute";
+const description =
+  "How DevsRoute takes a product from discovery and design through build and launch, with a clear scope and a defined end date.";
+
+export const metadata: Metadata = pageMetadata({
+  title,
+  description,
+  path: "/approach",
+  absolute: true,
+});
 
 export default function ApproachPage() {
   return (

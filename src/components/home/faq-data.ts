@@ -36,6 +36,12 @@ export const homeFaqs: HomeFaq[] = [
       "You do. When the work is complete and paid, you own the product and the code we write for you.",
   },
   {
+    id: "cost",
+    question: "How much does SaaS MVP development cost?",
+    answer:
+      "There is no fixed public price. Cost follows the scope. On the first call we agree what is in the first version and the end date, and the quote comes from that written scope.",
+  },
+  {
     id: "how-to-start",
     question: "How do we start?",
     answer:

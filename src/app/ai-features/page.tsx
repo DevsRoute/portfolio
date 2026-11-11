@@ -2,15 +2,15 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
+import { pageMetadata } from "@/lib/seo";
 import { calendlyHref, siteConfig } from "@/lib/site-config";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "AI Features for SaaS Teams",
   description:
     "Add chatbots, automation, and OpenAI integrations to your SaaS without pulling your core team off the roadmap.",
-  alternates: { canonical: `${siteConfig.url}/ai-features` },
-  robots: { index: true, follow: true },
-};
+  path: "/ai-features",
+});
 
 const examples = [
   "Customer-facing chatbots and assistants",
@@ -29,8 +29,8 @@ const faqs = [
     a: "OpenAI is common, but we pick the stack that fits your product, data, and constraints.",
   },
   {
-    q: "How do we start?",
-    a: "Book a 20-min call. We’ll map a small, shippable AI feature and a realistic timeline.",
+    q: "How do we start an AI feature?",
+    a: "Book a 20-min call. We map one shippable AI feature, a clear scope, and a defined end date.",
   },
 ] as const;
 
@@ -48,7 +48,12 @@ export default function AiFeaturesPage() {
           </h1>
           <p className="mt-5 text-base leading-7 text-ink-500 sm:text-lg">
             Your customers expect AI. Your team is already full. We ship focused
-            AI features so the core product keeps moving.
+            AI features so the core product keeps moving. The full offer is on
+            our{" "}
+            <Link href="/services/ai-solutions" className="font-semibold text-brand-600">
+              AI development page
+            </Link>
+            .
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button href={calendlyHref("/ai-features")} size="lg">

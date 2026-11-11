@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { ClientStories } from "@/components/home/ClientStories";
 import { ContactCta } from "@/components/home/ContactCta";
 import { FaqSection } from "@/components/home/FaqSection";
-import { homeFaqs } from "@/components/home/faq-data";
 import { Hero } from "@/components/home/Hero";
 import { IndustryDomains } from "@/components/home/IndustryDomains";
 import { OurServices } from "@/components/home/OurServices";
@@ -14,33 +13,22 @@ import {
   siteFacts,
 } from "@/config/site-facts";
 import { jsonLdScript } from "@/lib/json-ld";
+import { organizationId, pageMetadata, websiteId } from "@/lib/seo";
 import { services, siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
-  title: {
-    absolute: siteConfig.title,
-  },
-  description: siteConfig.description,
-  alternates: { canonical: siteConfig.url },
+  ...pageMetadata({
+    title: siteConfig.title,
+    description: siteConfig.description,
+    path: "/",
+    absolute: true,
+  }),
   keywords: [
     "SaaS MVP development",
     "AI product development",
     "startup MVP",
     "B2B product development",
   ],
-  openGraph: {
-    title: siteConfig.title,
-    description: siteConfig.description,
-    url: siteConfig.url,
-    images: [
-      {
-        url: "/brand/og/og-default.jpg",
-        width: 1200,
-        height: 630,
-        alt: "DevsRoute — SaaS MVP development and AI product development",
-      },
-    ],
-  },
 };
 
 function HomeJsonLd() {
@@ -50,33 +38,30 @@ function HomeJsonLd() {
     "@graph": [
       {
         "@type": "Organization",
+        "@id": organizationId,
         name: siteFacts.companyName,
         url: siteConfig.url,
-        logo: `${siteConfig.url}/brand/devsroute-logo-color.png`,
+        logo: `${siteConfig.url}/brand/favicon-512.png`,
         email: siteFacts.email,
         description: siteConfig.description,
         ...(sameAs.length ? { sameAs } : {}),
       },
-      ...services.map((service) => ({
-        "@type": "Service",
-        name: service.label,
-        description: service.description,
-        url: `${siteConfig.url}${service.href}`,
-        provider: {
-          "@type": "Organization",
-          name: siteFacts.companyName,
-          url: siteConfig.url,
-        },
-      })),
       {
-        "@type": "FAQPage",
-        mainEntity: homeFaqs.map((item) => ({
-          "@type": "Question",
-          name: item.question,
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: item.answer,
-          },
+        "@type": "WebSite",
+        "@id": websiteId,
+        name: siteFacts.companyName,
+        url: siteConfig.url,
+        description: siteConfig.description,
+        publisher: { "@id": organizationId },
+      },
+      {
+        "@type": "ItemList",
+        name: "DevsRoute services",
+        itemListElement: services.map((service, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          name: service.label,
+          url: `${siteConfig.url}${service.href}`,
         })),
       },
     ],

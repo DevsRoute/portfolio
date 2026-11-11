@@ -1,4 +1,5 @@
 import { jsonLdScript } from "@/lib/json-ld";
+import { organizationId } from "@/lib/seo";
 import type { ServicePageData } from "@/lib/services/service-pages-data";
 import { siteConfig } from "@/lib/site-config";
 
@@ -27,28 +28,13 @@ export function ServiceSchema({ service }: { service: ServicePageData }) {
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
+    "@id": `${pageUrl}#service`,
     name: service.hero.eyebrow,
     description: service.meta.description,
-    provider: {
-      "@type": "Organization",
-      name: siteConfig.name,
-      url: siteConfig.url,
-    },
-    areaServed: "Worldwide",
+    serviceType: service.hero.eyebrow,
     url: pageUrl,
-  };
-
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: service.faq.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.answer,
-      },
-    })),
+    provider: { "@id": organizationId },
+    areaServed: "Worldwide",
   };
 
   return (
@@ -60,10 +46,6 @@ export function ServiceSchema({ service }: { service: ServicePageData }) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLdScript(serviceSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: jsonLdScript(faqSchema) }}
       />
     </>
   );

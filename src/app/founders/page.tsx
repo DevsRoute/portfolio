@@ -2,15 +2,15 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
+import { pageMetadata } from "@/lib/seo";
 import { calendlyHref, siteConfig } from "@/lib/site-config";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "SaaS MVP Development for Founders",
   description:
     "SaaS MVP development for startups and B2B founders. Clear scope and a defined end date, a demo every week, and direct access to the developers.",
-  alternates: { canonical: `${siteConfig.url}/founders` },
-  robots: { index: true, follow: true },
-};
+  path: "/founders",
+});
 
 const steps = [
   {
@@ -37,7 +37,7 @@ const faqs = [
     a: "No. Many founders come to us before hiring. We keep scope honest so you can validate before building a full team.",
   },
   {
-    q: "How long does an MVP take?",
+    q: "How is the MVP end date decided?",
     a: "It depends on scope. The end date is agreed on the first call, and there is a demo every week.",
   },
   {
@@ -96,7 +96,19 @@ export default function FoundersPage() {
           <p className="mt-4 text-base leading-8 text-ink-500">
             SaaS MVP development with a clear scope and a defined end date,
             senior developers, and a demo every week. The scope is written
-            before we start.
+            before we start. See{" "}
+            <Link href="/services/custom-software-development" className="font-semibold text-brand-600">
+              custom software development
+            </Link>
+            ,{" "}
+            <Link href="/services/ai-solutions" className="font-semibold text-brand-600">
+              AI development
+            </Link>
+            , and{" "}
+            <Link href="/work" className="font-semibold text-brand-600">
+              recent work
+            </Link>
+            .
           </p>
         </div>
       </section>

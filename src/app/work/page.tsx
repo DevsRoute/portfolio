@@ -7,21 +7,18 @@ import { siteFacts } from "@/config/site-facts";
 import {
   getFeaturedProjects,
   getWebsiteProjects,
-  hasAnonymousProjects,
 } from "@/data/projects";
+import { pageMetadata } from "@/lib/seo";
 import { calendlyHref, siteConfig } from "@/lib/site-config";
 
-export const metadata: Metadata = {
+const workDescription =
+  "SaaS, AI, and product work DevsRoute helped build. Honest roles, real screenshots, and the stacks used. No invented client results.";
+
+export const metadata: Metadata = pageMetadata({
   title: "Work & Case Studies",
-  description:
-    "See SaaS, AI, FinTech, and EdTech projects DevsRoute helped build — honest roles, real product screenshots, and the tech stacks behind them.",
-  alternates: { canonical: `${siteConfig.url}/work` },
-  openGraph: {
-    title: "Work & Case Studies | DevsRoute",
-    description:
-      "Real product work across MVPs, AI features, and web apps. No invented clients — just clear roles and the stacks we used.",
-  },
-};
+  description: workDescription,
+  path: "/work",
+});
 
 export default function WorkPage() {
   const featured = getFeaturedProjects(siteFacts.showConcepts);

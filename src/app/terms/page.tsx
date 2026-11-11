@@ -2,14 +2,15 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { siteFacts } from "@/config/site-facts";
+import { pageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Terms of Use",
   description:
     "Terms for using the DevsRoute website. Project work is governed by a separate agreement.",
-  alternates: { canonical: `${siteConfig.url}/terms` },
-};
+  path: "/terms",
+});
 
 /**
  * LAWYER REVIEW REQUIRED — short placeholder terms for the marketing site.

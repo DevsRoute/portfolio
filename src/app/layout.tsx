@@ -28,6 +28,7 @@ const geistMono = Geist_Mono({
 });
 
 const gsc = process.env.NEXT_PUBLIC_GSC_VERIFICATION;
+const bing = process.env.NEXT_PUBLIC_BING_VERIFICATION;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -36,12 +37,20 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
-  alternates: {
-    canonical: siteConfig.url,
-  },
   icons: {
-    icon: [{ url: "/brand/favicon-v2.png", type: "image/png" }],
-    apple: [{ url: "/brand/favicon-v2.png", type: "image/png" }],
+    icon: [
+      { url: "/brand/favicon-32.png?v=3", type: "image/png", sizes: "32x32" },
+      { url: "/brand/favicon-16.png?v=3", type: "image/png", sizes: "16x16" },
+      { url: "/favicon.ico?v=3", sizes: "48x48" },
+      { url: "/brand/favicon-48.png?v=3", type: "image/png", sizes: "48x48" },
+      { url: "/brand/favicon-v2.png?v=3", type: "image/png", sizes: "192x192" },
+      { url: "/brand/favicon-512.png?v=3", type: "image/png", sizes: "512x512" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png?v=3", type: "image/png", sizes: "180x180" },
+      { url: "/brand/apple-touch-icon.png?v=3", type: "image/png", sizes: "180x180" },
+    ],
+    shortcut: [{ url: "/favicon.ico?v=3" }],
   },
   manifest: "/site.webmanifest",
   openGraph: {
@@ -69,10 +78,11 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-  ...(gsc
+  ...((gsc || bing)
     ? {
         verification: {
-          google: gsc,
+          ...(gsc ? { google: gsc } : {}),
+          ...(bing ? { other: { "msvalidate.01": bing } } : {}),
         },
       }
     : {}),

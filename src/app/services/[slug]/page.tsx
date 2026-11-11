@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { ServicePageContent } from "@/components/services/ServicePageContent";
+import { pageMetadata } from "@/lib/seo";
 import {
   getServicePage,
   getServicePageSlugs,
@@ -20,24 +21,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const service = getServicePage(slug);
 
   if (!service) {
-    return {};
+    return { title: "Service", robots: { index: false, follow: false } };
   }
 
-  return {
-    title: {
-      absolute: service.meta.title,
-    },
+  return pageMetadata({
+    title: service.meta.title,
     description: service.meta.description,
-    openGraph: {
-      title: service.meta.title,
-      description: service.meta.description,
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: service.meta.title,
-      description: service.meta.description,
-    },
-  };
+    path: `/services/${service.slug}`,
+    absolute: true,
+  });
 }
 
 export default async function ServicePage({ params }: PageProps) {

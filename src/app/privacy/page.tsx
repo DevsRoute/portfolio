@@ -2,14 +2,15 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { siteFacts } from "@/config/site-facts";
+import { pageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Privacy Policy",
   description:
     "How DevsRoute handles contact form data, analytics, and cookies on our website.",
-  alternates: { canonical: `${siteConfig.url}/privacy` },
-};
+  path: "/privacy",
+});
 
 /**
  * LAWYER REVIEW REQUIRED — this is a short placeholder policy for launch.

@@ -6,6 +6,8 @@ import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { siteFacts } from "@/config/site-facts";
 import { getProjectBySlug, getProjectSlugs } from "@/data/projects";
+import { jsonLdScript } from "@/lib/json-ld";
+import { pageMetadata } from "@/lib/seo";
 import { calendlyHref, siteConfig } from "@/lib/site-config";
 
 type Props = {
@@ -19,13 +21,13 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const project = getProjectBySlug(slug, siteFacts.showConcepts);
-  if (!project) return { title: "Project" };
+  if (!project) return { title: "Project", robots: { index: false, follow: false } };
 
-  return {
-    title: project.title.slice(0, 55),
-    description: project.description.slice(0, 155),
-    alternates: { canonical: `${siteConfig.url}/work/${project.slug}` },
-  };
+  return pageMetadata({
+    title: project.title,
+    description: project.summary,
+    path: `/work/${project.slug}`,
+  });
 }
 
 export default async function WorkDetailPage({ params }: Props) {
@@ -33,8 +35,23 @@ export default async function WorkDetailPage({ params }: Props) {
   const project = getProjectBySlug(slug, siteFacts.showConcepts);
   if (!project) notFound();
 
+  const pageUrl = `${siteConfig.url}/work/${project.slug}`;
+  const breadcrumb = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: siteConfig.url },
+      { "@type": "ListItem", position: 2, name: "Work", item: `${siteConfig.url}/work` },
+      { "@type": "ListItem", position: 3, name: project.title, item: pageUrl },
+    ],
+  };
+
   return (
     <main className="flex-1">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLdScript(breadcrumb) }}
+      />
       <section className="bg-[#F4F7FC] pt-40 pb-12 sm:pt-44 lg:pt-48">
         <div className="container-site max-w-3xl">
           <Link

@@ -7,21 +7,18 @@ import { AboutExpertise } from "@/components/about/AboutExpertise";
 import { AboutHero } from "@/components/about/AboutHero";
 import { AboutIntro } from "@/components/about/AboutIntro";
 import { AboutMetrics } from "@/components/about/AboutMetrics";
-import { AboutTeam } from "@/components/about/AboutTeam";
 import { AboutWhyUs } from "@/components/about/AboutWhyUs";
 import { AboutWorkPreview } from "@/components/about/AboutWorkPreview";
-import { siteConfig } from "@/lib/site-config";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+const description =
+  "Remote software studio for startups and B2B founders. SaaS MVP development and AI product development, with a clear scope and a defined end date.";
+
+export const metadata: Metadata = pageMetadata({
   title: "About",
-  description:
-    "Remote software studio for startups and B2B founders. SaaS MVP development and AI product development, with a clear scope and a defined end date.",
-  openGraph: {
-    title: `About | ${siteConfig.name}`,
-    description:
-      "We build digital products that move businesses forward with thoughtful design, modern engineering, and practical delivery.",
-  },
-};
+  description,
+  path: "/about",
+});
 
 export default function AboutPage() {
   return (

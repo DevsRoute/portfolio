@@ -1,25 +1,37 @@
 import type { Metadata } from "next";
 
 import { ContactHero, ContactMain } from "@/components/contact/ContactPage";
+import { jsonLdScript } from "@/lib/json-ld";
+import { organizationId, pageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
 
-export const metadata: Metadata = {
-  title: {
-    absolute: "Contact | Start a Project | DevsRoute",
-  },
-  description:
-    "Get in touch with DevsRoute to discuss custom software, web apps, mobile products, AI solutions, and product design.",
-  openGraph: {
-    title: "Contact | Start a Project | DevsRoute",
-    description:
-      "Tell us what you're building. We'll help you shape the right path from idea to launch.",
-    url: `${siteConfig.url}/contact`,
-  },
-};
+const title = "Contact | Start a Project | DevsRoute";
+const description =
+  "Contact DevsRoute about SaaS MVP development, AI product development, custom software, web apps, and mobile products.";
+
+export const metadata: Metadata = pageMetadata({
+  title,
+  description,
+  path: "/contact",
+  absolute: true,
+});
 
 export default function ContactPage() {
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    url: `${siteConfig.url}/contact`,
+    name: title,
+    description,
+    mainEntity: { "@id": organizationId },
+  };
+
   return (
     <main className="flex-1">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLdScript(data) }}
+      />
       <ContactHero />
       <ContactMain />
     </main>
