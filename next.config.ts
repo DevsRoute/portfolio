@@ -22,6 +22,17 @@ const nextConfig: NextConfig = {
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
   },
+  async redirects() {
+    // Send www traffic to the canonical apex domain (permanent 308).
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.devsroute.com" }],
+        destination: "https://devsroute.com/:path*",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
